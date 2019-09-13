@@ -1,0 +1,26 @@
+
+
+.home{
+  background: linear-gradient(#95dcea, #fff);
+  background-size: contain; 
+
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+@media only screen and (max-width: 425px){
+  .barra{
+    width: 30em;
+    position: absolute;
+    left: -1%;
+    top: 50%;
+    z-index: 2;
+  }
+  .ciudad{
+    position: absolute;
+    bottom: 36%;
+    left: 23%;
+    width: 77%;
+  }
+}
