@@ -9,18 +9,114 @@
   position: relative;
   overflow: hidden;
 }
+.border{
+  border: red solid 1px;
+}
 @media only screen and (max-width: 425px){
-  .barra{
+  .home__barra{
     width: 30em;
     position: absolute;
     left: -1%;
     top: 50%;
     z-index: 2;
+    animation: salir .9s ;
   }
-  .ciudad{
+  .home__ciudad{
     position: absolute;
+    opacity: 0;
     bottom: 36%;
     left: 23%;
     width: 77%;
+    animation: salir .9s .5s ease-out;
+    animation-fill-mode: forwards;
+    
+  }
+}
+.home__nuves{
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+.nuves__nuve{
+  width: 5em;
+  position: absolute;
+  animation: aparecer 2s;
+}
+.nuves__nuve.uno{
+  right: 10%;
+  top: 5%;
+}
+.nuves__nuve.dos{
+  right: 49%;
+    top: 45%;
+}
+.nuves__nuve.tres{
+  right: 80%;
+  top:10%;
+}
+
+.home__arboles{
+  position: relative;
+  width: 18%;
+  height: 20%;
+  top: -2%;
+  left: 2%;
+  opacity: 0;
+  overflow: hidden;
+  transform-origin: bottom center;
+  
+  animation: salirArbol 1s .9s forwards;
+}
+.arboles__arbol{
+  position: absolute;
+  width: 3em;
+}
+.arboles__arbol.uno{
+  top: 1%;
+}
+.arboles__arbol.dos{
+  left: 2%;
+  width: 2.5em;
+  top: 7%;
+  transform-origin: bottom;
+  transform: rotate(27deg);
+}
+@keyframes salir{
+  from{
+    opacity: 0;
+    transform: translateY(300px)
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px)
+  }
+}
+@keyframes aparecer{
+  from{
+    opacity: 0;
+    transform: translateX(20px)
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px)
+  }
+}
+@keyframes salirArbol{
+  from{
+    opacity: 0;
+    transform: rotate(96deg);
+    
+  }
+  to{
+    opacity: 1;
+    transform:   rotate(0deg)
+  }
+}
+@keyframes rotar{
+  from{
+
+  }
+  to{
+
   }
 }
