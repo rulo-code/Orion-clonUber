@@ -1,0 +1,15 @@
+Para comenzar se deja en banco un react app.
+
+Dentro de el tenemos 3 carpetas y 4 archivos.
+
+  node_modules: es donde viven todas las dependencias de node
+
+  puplic:contiene el index.js, es el HTML base
+
+  src: tendrá todas las rutas y archivos del proyecto
+
+    .gitignore: archivos ignorados por el repositorio.
+    package-losck.json:es donde se hace el llamado a todas las dependencias que hacen que react funcione
+    es el webpack funcionando.
+    package.json: Aquí estan todas las configuraciones de npm 
+
