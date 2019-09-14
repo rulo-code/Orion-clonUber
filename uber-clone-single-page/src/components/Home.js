@@ -13,7 +13,7 @@ function Home(){
     <div className="home">
       
       <div className="home__hello ">
-      <div className="home__hello--logo border">
+      <div className="home__hello--logo ">
           <h1>City</h1>
           <p>Driver</p>
         </div>
@@ -25,7 +25,7 @@ function Home(){
         </div>
       <div className="container ">
 
-        <div className="loader">
+        <div className="loger">
           <img className="home__barra" src={barrainclinada} alt="barra"/>
           <img className="home__ciudad " src={ciudad} alt="ciudad"/>
           
@@ -34,7 +34,7 @@ function Home(){
             <img className="arboles__arbol dos " src={arbol1} alt="arbol"/>
           </div>  
           <img className="home__carrito " src={carrito} alt="carrito"/> 
-          <div className="home__form hide">
+          <div className="home__form ">
           <a className="form__btn  signIn" href="/">Inicio</a>
           <a className="form__btn  signOut" href="/">Registro</a>
         </div>

@@ -30,12 +30,13 @@ a{
     align-items: flex-end;
     justify-content: center;
 }
-.loader{
+.loger{
   position: relative;
-  top: -3%;
+    top: 56%;
     width: 100%;
     padding: 1.5em;
-    animation: salirLoger 3s ease-in-out forwards;
+    height: 40%;
+    animation: salirLoger 3s forwards
 }
 .border{
   border: red solid 1px;
@@ -123,7 +124,7 @@ a{
   position: absolute;
     z-index: 7;
     width: 9em;
-    top: 86%;
+    top: 81%;
     left: -40%;
     animation: salidaCarrito 1s 1s  forwards;
 }
@@ -154,17 +155,17 @@ a{
 
 .home__form{
   position: relative;
-  z-index: 5;
-  width: 80%;
-  height: 24%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  top: -60%;
-  /* opacity: 0;
-  animation: salirForm 1s 2.2s ease-in-out forwards; */
+    z-index: 5;
+    width: 80%;
+    height: 24%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    top: -48%;
+    animation: salirForm 1.5s 1.2s ease-out forwards;
 }
 .form__btn{
   padding: 1em 3.5em;
@@ -188,16 +189,16 @@ a{
 
 @keyframes salirLoger{
   0%{
-    top: -3%;
+    top: 56%;
   }
   20%{
-    top: -18%;
+    top: -15%;
   }
   65%{
-    top: -18%;
+    top: -15%;
   }
   100%{
-    top: -44%;
+    top: -45%;
   }
 }
 @keyframes salirLogo{
@@ -247,13 +248,13 @@ a{
     top: 85%;
   }
   50%{
-    top: -62%;
+    top: -27%;
   }
   59%{
-    top: -55%;
+    top: -23%;
   }
   100%{
-    top: -55%;
+    top: -23%;
   }
 }
 @keyframes SalirNubes{
@@ -282,7 +283,7 @@ a{
     left:-40%;
   }
   100%{
-    left: 3%
+    left: 2%
   }
 }
 @keyframes subirContainer{
@@ -294,12 +295,16 @@ a{
   }
 }
 @keyframes salirForm{
-  from{
-    top: 80%;
+  0%{
+    top: 258%;
     opacity: 0;
   }
-  to{
-    top: 63%;
+  50%{
+    top: 258%;
+    opacity: 0;
+  }
+  100%{
+    top: 155%;
     opacity: 1;
   }
 }
