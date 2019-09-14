@@ -90,10 +90,10 @@ a{
 .home__carrito{
   position: absolute;
     z-index: 7;
-    width: 8em;
-    top: 68%;
-    left: -30%;
-    animation: salirCarrito 1s 1s forwards;
+    width: 9em;
+    top: 73%;
+    left: -35%;
+    animation: salirCarrito 1s 1.3s forwards;
 }
 .home__arboles{
   position: relative;
@@ -105,7 +105,7 @@ a{
   overflow: hidden;
   transform-origin: bottom center;
   
-  animation: salirArbol 1s .9s forwards;
+  animation: salirArbol 1s 1.3s forwards;
 }
 .arboles__arbol{
   position: absolute;
@@ -139,6 +139,8 @@ a{
 .form__btn{
   padding: 1em 3.5em;
   border-radius: 5em;
+  width: 4em;
+  text-align: center;
   
 
 }

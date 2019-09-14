@@ -6,7 +6,7 @@ import barrainclinada from './styles/images/finales/barra.png'
 import ciudad from './styles/images/finales/Recurso2.png'
 import nube from './styles/images/finales/Recurso8.png'
 import arbol1 from './styles/images/finales/Recurso4.png'
-import carrito from './styles/images/finales/Recurso3.png'
+import carrito from './styles/images/finales/carrito3.png'
 
 function Home(){
   return(
@@ -31,8 +31,8 @@ function Home(){
         </div>  
         <img className="home__carrito" src={carrito} alt="carrito"/> 
         <div className="home__form ">
-        <a className="form__btn  signIn" href="/">Sign In</a>
-        <a className="form__btn  signOut" href="/">Sign Out</a>
+        <a className="form__btn  signIn" href="/">Inicio</a>
+        <a className="form__btn  signOut" href="/">Registro</a>
       </div>
     </div>
       </div> 
