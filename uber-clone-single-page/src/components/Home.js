@@ -11,10 +11,12 @@ import carrito from './styles/images/finales/carrito3.png'
 function Home(){
   return(
     <div className="home">
-
+      
       <div className="home__hello ">
-        <h1>City</h1>
-        <p>Driver</p>
+      <div className="home__hello--logo border">
+          <h1>City</h1>
+          <p>Driver</p>
+        </div>
       </div>
       <div className="home__nubes">
           <img className="nubes__nube uno" src={nube} alt="nube"/>
@@ -22,17 +24,21 @@ function Home(){
           <img className="nubes__nube tres" src={nube} alt="nube"/>
         </div>
       <div className="container ">
-        <img className="home__barra" src={barrainclinada} alt="barra"/>
-        <img className="home__ciudad" src={ciudad} alt="ciudad"/>
-       
-        <div className="home__arboles ">
-          <img className="arboles__arbol uno" src={arbol1} alt="arbol"/>
-          <img className="arboles__arbol dos " src={arbol1} alt="arbol"/>
-        </div>  
-        <img className="home__carrito" src={carrito} alt="carrito"/> 
-        <div className="home__form ">
-        <a className="form__btn  signIn" href="/">Inicio</a>
-        <a className="form__btn  signOut" href="/">Registro</a>
+
+        <div className="loader">
+          <img className="home__barra" src={barrainclinada} alt="barra"/>
+          <img className="home__ciudad " src={ciudad} alt="ciudad"/>
+          
+          <div className="home__arboles  hide ">
+            <img className="arboles__arbol uno" src={arbol1} alt="arbol"/>
+            <img className="arboles__arbol dos " src={arbol1} alt="arbol"/>
+          </div>  
+          <img className="home__carrito " src={carrito} alt="carrito"/> 
+          <div className="home__form hide">
+          <a className="form__btn  signIn" href="/">Inicio</a>
+          <a className="form__btn  signOut" href="/">Registro</a>
+        </div>
+
       </div>
     </div>
       </div> 

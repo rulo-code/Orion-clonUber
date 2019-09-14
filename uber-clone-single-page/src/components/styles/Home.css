@@ -13,15 +13,29 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template: 15vh 85vh / 1fr;
+  grid-template-areas: "logo"
+                       "loger";
+
 }
 a{
   text-decoration: none;
   color:white;
 }
 .container{
+  grid-area: loger;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.loader{
   position: relative;
-  height: 100vh; 
-  animation: subirContainer .8s 2.2s ease-out forwards;
+  top: -3%;
+    width: 100%;
+    padding: 1.5em;
+    animation: salirLoger 3s ease-in-out forwards;
 }
 .border{
   border: red solid 1px;
@@ -30,35 +44,53 @@ a{
   .home__barra{
     width: 30em;
     position: absolute;
-    left: -1%;
-    top: 100%;
+    left: -5%;
+    top: 61%;
     z-index: 2;
-    animation: salirBarra .8s forwards;
   }
   .home__ciudad{
     position: absolute;
-    opacity: 0;
+    /* opacity: 0; */
     bottom: -25%;
+    top: 85%;
     left: 23%;
     width: 77%;
-    animation: salirCiudad .9s .5s ease-out forwards;
+    animation: salirCiudad 3s forwards;
     
   }
 }
+.hide{
+  display: none
+}
 .home__hello{
-  position: absolute;
-  z-index: 3;
-  left: 7%;
-  top: 20%;
+  grid-area: logo;
+    /* position: absolute; */
+    z-index: 3;
+    left: 7%;
+    top: 20%;
+    text-align: center;
+    animation: salirHello 1.2s forwards;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home__hello--logo{
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  animation: salirHello 1.2s  forwards;
-  opacity: 0;
+  position: relative;
+    top: 261%;
+    animation: salirLogo 3s forwards;
 }
 .home__hello h1{
   font-size: 3em;
   text-transform: uppercase
 }
 .home__hello p{
+  margin-left: .2em;
   letter-spacing: .6em;
   font-size: 1em;
   font-weight: bold;
@@ -91,35 +123,33 @@ a{
   position: absolute;
     z-index: 7;
     width: 9em;
-    top: 73%;
-    left: -35%;
-    animation: salirCarrito 1s 1.3s forwards;
+    top: 86%;
+    left: -40%;
+    animation: salidaCarrito 1s 1s  forwards;
 }
 .home__arboles{
-  position: relative;
-  width: 18%;
-  height: 20%;
-  top: 63%;
-  left: 2%;
+  position: absolute;
+  display: flex;
+  top: 71%;
+  left: 1%;
+  transform-origin: bottom;
   opacity: 0;
-  overflow: hidden;
-  transform-origin: bottom center;
-  
-  animation: salirArbol 1s 1.3s forwards;
+    transform: rotate(96deg);
+  animation: salirArbol 1.5s .9s forwards;
 }
 .arboles__arbol{
-  position: absolute;
-  width: 3em;
+  width: 2em;
+  
 }
 .arboles__arbol.uno{
   top: 1%;
 }
 .arboles__arbol.dos{
-  left: 2%;
-  width: 2.5em;
-  top: 7%;
-  transform-origin: bottom;
-  transform: rotate(27deg);
+  position: relative;
+    left: -49%;
+    top: 30%;
+    transform-origin: bottom;
+    transform: rotateZ(16deg);
 }
 
 .home__form{
@@ -132,9 +162,9 @@ a{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  top: 37%;
-  opacity: 0;
-  animation: salirForm 1s 2.2s ease-in-out forwards;
+  top: -60%;
+  /* opacity: 0;
+  animation: salirForm 1s 2.2s ease-in-out forwards; */
 }
 .form__btn{
   padding: 1em 3.5em;
@@ -146,19 +176,58 @@ a{
 }
 .form__btn.signIn{
   background: #72b239;
+    margin-bottom: 1em;
 }
 .form__btn.signOut{
   background: #fff;
   color: #000
 }
+
+/* KEYFRAMES */
+
+
+@keyframes salirLoger{
+  0%{
+    top: -3%;
+  }
+  20%{
+    top: -18%;
+  }
+  65%{
+    top: -18%;
+  }
+  100%{
+    top: -44%;
+  }
+}
+@keyframes salirLogo{
+  0%{
+    top: 261%;
+    opacity: .9;
+  }
+  20%{
+    opacity: 1;
+  }
+  65%{
+    top: 261%;
+    opacity: 1;
+  }
+  100%{
+    top: 0
+  }
+}
+
+
 @keyframes salirBarra{
-  from{
-    top: 100%;
+  0%{
     opacity: 0;
   }
-  to{
-    top: 65%;
+  50%{
+    top: 11%;
     opacity: 1;
+  }
+  100%{
+
   }
 }
 @keyframes salirHello{
@@ -171,12 +240,20 @@ a{
   }
 }
 @keyframes salirCiudad{
-  from{
-    opacity: 0;
+  0%{
+    top: 85%;
   }
-  to{
-    opacity: 1;
-    bottom: 23%;
+  35%{
+    top: 85%;
+  }
+  50%{
+    top: -62%;
+  }
+  59%{
+    top: -55%;
+  }
+  100%{
+    top: -55%;
   }
 }
 @keyframes SalirNubes{
@@ -200,13 +277,12 @@ a{
     transform:   rotate(0deg)
   }
 }
-
-@keyframes salirCarrito{
-  from{
-    left: -30%;
+@keyframes salidaCarrito{
+  0%{
+    left:-40%;
   }
-  to{
-    left: 2%;
+  100%{
+    left: 3%
   }
 }
 @keyframes subirContainer{
