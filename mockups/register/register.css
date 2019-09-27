@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.fab{
+  font-size: 2em;
+}
+.input{
+  width: 60%;
+  background: #e7eaf1;
+  padding: 1em;
+  border: none;
+  outline: none;
+  border-radius: 3em;
+  margin-bottom: 1em;
+}
+.btn{
+  background: #30407b;
+  padding: 1em 3em;
+  border: none;
+  outline: none;
+  border-radius: 3em;
+  margin-bottom: 2em;
+  color: #fff;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  display: grid;
+  grid-template: 10vh 80vh 10vh / 1fr;
+  grid-template-areas: "logo"
+                        "form"
+                        "redes";
+}
+.logo{
+  grid-area: logo;
+}
+.form{
+  grid-area: form;
+  flex-direction: column;
+}
+.form__name{
+  width: 65%;
+  margin: 0 auto;
+  justify-content: space-around
+}
+.form__name input{
+  width: 40%;
+
+}
+.terms{
+  margin-bottom: 1em;
+}
+.redes{
+  grid-area: redes;
+}
+.signup--with{
+  margin-bottom: 1em;
+}
+.facebook{
+  color: #3c5999;
+}
+.facebook span{
+  color: #000;
+}
+.google{
+  color: #dd4c3b;
+}
+.google span{
+  color: #000;
+}
+.redes__container{
+  width: 50%;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+.signUp{
+  margin-left: 1em;
+  color: #30407b;
+  font-weight: bold;
+}
+.border{
+  border: solid red 1px;
+}
+.borderB{
+  border: solid blue 1px;
+}
