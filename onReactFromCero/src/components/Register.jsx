@@ -11,6 +11,9 @@ const Register = () => {
           <p>Driver</p>
         </div>
       </div>
+      <div className="form">
+        
+      </div>
     </div>
   );
 };
