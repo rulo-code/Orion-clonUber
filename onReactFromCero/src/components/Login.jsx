@@ -1,26 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loginReguest } from '../actions';
 import '../assets/styles/components/Login.css';
-import barrainclinada from '../assets/static/barra.png';
-import ciudad from '../assets/static/Recurso2.png';
-import nube from '../assets/static/Recurso8.png';
-import arbol1 from '../assets/static/Recurso4.png';
-import carrito from '../assets/static/carrito3.png';
+import googleIcon from '../assets/static/googleIcon.png';
+import facebookIcon from '../assets/static/facebookIcon.png';
 
-const Login = () => {
+
+const Login = (props) => {
+  const [form, setValues] = useState({
+    email: "",
+    password: "",
+  });
+  const  handleInput = event => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.loginReguest(form);
+    console.log(form);
+    props.history.push('/');
+  }
   return (
-    <div className='container'>
-      <div className='Logo'>
-        <div className='home__hello--logo '>
-          <h1>City</h1>
-          <p>Driver</p>
+    <div className="container ">
+
+      <div className="logo  flex">
+        Logo
+      </div>
+
+      <form className="form  flex" onSubmit={handleSubmit}>
+        <input
+          name="email"
+          onChange={handleInput}
+          className="input" 
+          type="email" 
+          placeholder="Email"
+        />
+        <input
+          name="password"
+          onChange={handleInput}
+          className="input" 
+          type="password" 
+          placeholder="password"
+        />
+        <button 
+          type="submit" 
+          className="btn" 
+        >
+          Iniciar
+        </button>
+        <a href="#">¿Olvidaste tu constraseña?</a>
+      </form>
+
+      <div className="redes  flexColumn">
+
+        <div className=" flex redes__container">
+          <div>
+            <a href="#">
+              <img className="google" src={facebookIcon} alt="facebook"/>
+            </a>
+          </div>
+          <div >
+            <a href="#">
+              <img className="google" src={googleIcon} alt="google"/>
+            </a>
+          </div>
         </div>
+
+        <div className=" flex register ">
+          <p>¿No tienes una cuenta?</p>
+          <Link className="signUp" to="/register">
+            Registrate !
+          </Link>
+          
+        </div>
+
       </div>
-      <div className='form'>
-        <img className='form--barra' src={barrainclinada} alt="Barrainclinada"/>
-      </div>
+
     </div>
   );
 
 };
-export default Login;
+const mapDispatchToProps = {
+  loginReguest,
+};
+export default connect(null, mapDispatchToProps)(Login);
