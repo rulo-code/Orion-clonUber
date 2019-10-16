@@ -7,6 +7,7 @@
   grid-template-areas: "header"
                         "hero";
   overflow: hidden;
+  background: linear-gradient(348deg, #bed9ea, #fff);
 }
 .layout__header{
   grid-area: header;

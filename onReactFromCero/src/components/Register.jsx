@@ -30,10 +30,8 @@ const Register = (props) => {
   }
   return (
     <div className="registerContainer ">
-
-      
-
       <form className="form  flex" onSubmit={handleSubmit}>
+      <h2>Crea una cuenta</h2>
         <div className=" form__name flex">
           <input
             name="name"
@@ -89,7 +87,6 @@ const Register = (props) => {
         </div>
         <button type="submit" className="btn" href="/">Registrate</button>
       </form>
-
       <div className=" flexColumn redes ">
         <p>Registrate con:</p>
         <div className=" flex redes__container">

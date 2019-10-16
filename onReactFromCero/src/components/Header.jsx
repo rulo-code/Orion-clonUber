@@ -7,7 +7,7 @@ const Header = () => {
     <div className="home__logo  flexRow ">
       <Link to="/">
         <div className="flexColumn ">
-          <h1>Citi</h1>
+          <h1>City</h1>
           <p>Driver</p>
         </div>
       </Link>

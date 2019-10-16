@@ -26,7 +26,9 @@ const Login = (props) => {
   }
   return (
     <div className="container ">
-      <form className="form  flex" onSubmit={handleSubmit}>
+
+      <form className="flex form  " onSubmit={handleSubmit}>
+       <h2>Inicia Sesión</h2>
         <input
           name="email"
           onChange={handleInput}
@@ -45,13 +47,13 @@ const Login = (props) => {
           type="submit" 
           className="btn" 
         >
-          Iniciar
+          Entrar
         </button>
         <a href="#">¿Olvidaste tu constraseña?</a>
       </form>
 
       <div className="redes  flexColumn">
-
+        <p>Inicia con :</p>
         <div className=" flex redes__container">
           <div>
             <a href="#">
@@ -65,7 +67,7 @@ const Login = (props) => {
           </div>
         </div>
 
-        <div className=" flex register ">
+        <div className=" flex orregister ">
           <p>¿No tienes una cuenta?</p>
           <Link className="signUp" to="/register">
             Registrate !

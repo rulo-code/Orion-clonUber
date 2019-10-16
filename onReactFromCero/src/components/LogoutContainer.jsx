@@ -9,8 +9,6 @@ import arbol1 from "../assets/static/Recurso4.png";
 import carrito from "../assets/static/carrito3.png";
 
 const LogoutContainer = props => {
- 
-
   return <FormRegister />;
 };
 export default LogoutContainer;

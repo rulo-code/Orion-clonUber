@@ -6,13 +6,8 @@ a{
   font-size: 2em;
 }
 .input{
-  width: 60%;
-  background: #e7eaf1;
-  padding: 1em;
-  border: none;
-  outline: none;
-  border-radius: 3em;
-  margin-bottom: 1em;
+  width: 90%;
+  font-size: .9em;
 }
 .btn{
   background: #a8c798;
@@ -36,9 +31,8 @@ a{
 }
 .registerContainer{
   display: grid;
-    grid-template: 3% 70% 30% / 1fr;
+  grid-template: 80% 20% / 1fr;
     grid-template-areas:
-        "logo"
         "form"
         "redes";
     height: 100%;
@@ -47,20 +41,21 @@ a{
   border-radius: 1em;
    
 }
-.logo{
-  grid-area: logo;
-}
+
 .form{
   grid-area: form;
   flex-direction: column;
 }
+.form h2 {
+  margin: 1em;
+}
 .form__name{
-  width: 65%;
+  width: 95%;
   margin: 0 auto;
-  justify-content: space-around
+  justify-content: space-around;
 }
 .form__name input{
-  width: 40%;
+  width: 45%;
 
 }
 .terms{
@@ -93,4 +88,8 @@ a{
   margin-left: 1em;
   color: #30407b;
   font-weight: bold;
+}
+.register{
+  position: relative;
+  top: -15%;
 }

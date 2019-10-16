@@ -35,13 +35,14 @@ a{
 }
 .container{
   display: grid;
-  grid-template: 50vh 30vh / 1fr;
-  grid-template-areas:
-      "form"
-      "redes";
-  background: #fff;
-  border: solid #000 2px;
-  border-radius: 1em;
+    grid-template: 51vh 40vh / 1fr;
+    grid-template-areas:
+        "form"
+        "redes";
+    background: #fff;
+    border: solid #000 2px;
+    border-radius: 1em;
+    height: 100%;
   
 }
 
@@ -49,8 +50,17 @@ a{
   grid-area: form;
   flex-direction: column;
 }
+.form h2 {
+  margin: 1em;
+}
 .redes{
   grid-area: redes;
+    align-items: center;
+    justify-content: flex-start;
+}
+.redes p {
+  font-size: 1.3em;
+    margin-bottom: .5em;
 }
 .facebook{
   color: #3c5999;
@@ -79,4 +89,8 @@ a{
 }
 .borderB{
   border: solid blue 1px;
+}
+.flex.orregister{
+  position: relative;
+  top: 5%
 }
