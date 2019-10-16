@@ -1,0 +1,21 @@
+.layoutContainer{
+  // display: none;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template: 20vh 80vh / 1fr;
+  grid-template-areas: "header"
+                        "hero";
+  overflow: hidden;
+}
+.layout__header{
+  grid-area: header;
+    position: relative;
+    z-index: 5;
+}
+.layout__header{
+  grid-area: header;
+}
+.layout__hero{
+  grid-area: hero;
+}

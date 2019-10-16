@@ -31,9 +31,7 @@ const Register = (props) => {
   return (
     <div className="registerContainer ">
 
-      <div className="logo  flex">
-        Logo
-      </div>
+      
 
       <form className="form  flex" onSubmit={handleSubmit}>
         <div className=" form__name flex">

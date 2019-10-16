@@ -15,13 +15,13 @@ a{
   margin-bottom: 1em;
 }
 .btn{
-  background: #30407b;
+  background: #a8c798;
   padding: 1em 3em;
   border: none;
   outline: none;
   border-radius: 3em;
   margin-bottom: 2em;
-  color: #fff;
+  color: #000;
 }
 .flex{
   display: flex;
@@ -36,10 +36,16 @@ a{
 }
 .registerContainer{
   display: grid;
-  grid-template: auto 80vh 20vh / 1fr;
-  grid-template-areas: "logo"
-                        "form"
-                        "redes";
+    grid-template: 3% 70% 30% / 1fr;
+    grid-template-areas:
+        "logo"
+        "form"
+        "redes";
+    height: 100%;
+  background: #fff;
+  border: solid #000 2px;
+  border-radius: 1em;
+   
 }
 .logo{
   grid-area: logo;
@@ -87,10 +93,4 @@ a{
   margin-left: 1em;
   color: #30407b;
   font-weight: bold;
-}
-.border{
-  border: solid red 1px;
-}
-.borderB{
-  border: solid blue 1px;
 }

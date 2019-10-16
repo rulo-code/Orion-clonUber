@@ -26,11 +26,6 @@ const Login = (props) => {
   }
   return (
     <div className="container ">
-
-      <div className="logo  flex">
-        Logo
-      </div>
-
       <form className="form  flex" onSubmit={handleSubmit}>
         <input
           name="email"
