@@ -1,3 +1,14 @@
-.home__logo{
-  font-size: 1.5em;
+@import "../Vars.scss";
+
+.header{
+  @include font-size(25px);
+  @include positionZ(relative, 10);
+  top: 50%;
+  &__logo {
+    @include flexColumn();
+    p {
+      color: $light-color;
+      font-weight: bold;
+    }
+  }
 }

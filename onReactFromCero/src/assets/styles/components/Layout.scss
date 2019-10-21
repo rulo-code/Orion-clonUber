@@ -1,22 +1,16 @@
-.layoutContainer{
-  // display: none;
+@import "../Vars.scss";
+.layout {
+  display:grid;
+  grid-template: 10vh 85vh 5vh / 1fr;
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template: 20vh 80vh / 1fr;
-  grid-template-areas: "header"
-                        "hero";
   overflow: hidden;
-  background: linear-gradient(348deg, #bed9ea, #fff);
+  background: linear-gradient(#a8d2f2, #fff);
+  &__hero {
+    @include positionZ(relative, 2)
+  }
+  &__footer {
+    @include positionZ(relative, 7)
+  }
 }
-.layout__header{
-  grid-area: header;
-    position: relative;
-    z-index: 5;
-}
-.layout__header{
-  grid-area: header;
-}
-.layout__hero{
-  grid-area: hero;
-}
+

@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { registerReguest } from '../actions';
@@ -29,10 +29,10 @@ const Register = (props) => {
     props.history.push('/');
   }
   return (
-    <div className="registerContainer ">
-      <form className="form  flex" onSubmit={handleSubmit}>
-      <h2>Crea una cuenta</h2>
-        <div className=" form__name flex">
+    <div className="register">
+      <form className="register__form" onSubmit={handleSubmit}>
+        <h2>Crea una cuenta</h2>
+        <div className="fullName">
           <input
             name="name"
             onChange={handleInput}
@@ -77,7 +77,7 @@ const Register = (props) => {
           type="password" 
           placeholder="Confirmar contraseña"
         />
-        <div className="flex terms">
+        <div className="terms">
           <input  
             type="checkbox" 
             name="vehicle1" 
@@ -87,23 +87,23 @@ const Register = (props) => {
         </div>
         <button type="submit" className="btn" href="/">Registrate</button>
       </form>
-      <div className=" flexColumn redes ">
+      <div className="register__redes">
         <p>Registrate con:</p>
-        <div className=" flex redes__container">
+        <div className="icons">
           <div>
             <a href="#">
-              <img className="google" src={facebookIcon} alt="facebook"/>
+              <img className="imgIcon" src={facebookIcon} alt="facebook"/>
             </a>
           </div>
           <div >
             <a href="#">
-              <img className="google" src={googleIcon} alt="google"/>
+              <img className="imgIcon" src={googleIcon} alt="google"/>
             </a>
           </div>
         </div> 
-        <div className=" flex register ">
+        <div className="toLogin">
           <p>¿Ya tienes una cuenta?</p>
-          <Link className="signUp" to="/login">
+          <Link className="signIn" to="/login">
             Inicia !
           </Link>         
         </div>

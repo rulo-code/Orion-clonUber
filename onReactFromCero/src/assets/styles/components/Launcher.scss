@@ -1,17 +1,20 @@
-.laucherContainer{
-  height: 50%;
-    position: relative;
-    top: -10%;
-}
-.btn{
-  font-size: 1.3em;
-  box-shadow: 8px 8px 5px -4px rgba(0,0,0,0.75);
-}
-.btn.logout{
-  background: #fff;
-  color:#000 ;
-}
-.btn.login{
-  background: #a8c798;
-  color:#000 ;
+@import "../Vars.scss";
+.launcher{
+  @include flexColumn();
+  &__buttons {
+    @include flexColumn();
+    height: 30%;
+    .btn {
+      @include button();
+      width: 60%;
+      text-align: center;
+      font-size: 1.8em;
+      color : $light-color;
+      font-weight: bold;
+    }
+    .btn.logout {
+      background: $light-color;
+      color: #000;
+    }
+  }
 }

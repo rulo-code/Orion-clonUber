@@ -1,17 +1,16 @@
 import React from "react";
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from "react-router-dom";
 import "../assets/styles/components/Home.scss";
 import "../assets/styles/components/Launcher.scss";
-const Launcher = (props) => {
-
+const Launcher = props => {
   return (
-    <div className=" flexColumn">
-      <div  className="flexColumn laucherContainer">
-        <Link to="/login" className="btn login"  >
-            Iniciar Sesión
+    <div className="launcher">
+      <div className="launcher__buttons"> 
+        <Link to="/login" className="btn">
+          Iniciar Sesión
         </Link>
-        <Link to="/register" className="btn logout"  >
-            Registrarse
+        <Link to="/register" className="btn logout">
+          Registrarse
         </Link>
       </div>
     </div>

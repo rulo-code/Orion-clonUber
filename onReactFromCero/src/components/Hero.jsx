@@ -12,21 +12,21 @@ import carrito from "../assets/static/carrito3.png";
 
 const Hero = ({ children }) => {
   return (
-    <div className="home__main  ">
-      <img className="img main--barra" src={barrainclinada} alt="barra" />
-      <img className="img main--ciudad" src={ciudad} alt="barra" />
-      <img className="img main--carro" src={carrito} alt="barra" />
+    <div className="hero">
+      <img className="hero__barra" src={barrainclinada} alt="barra" />
+      <img className="hero__ciudad" src={ciudad} alt="barra" />
+      <img className="hero__carro" src={carrito} alt="barra" />
 
-      <div className="img main__arboles">
-        <img className=" main--arbol1" src={arbol1} alt="barra" />
-        <img className=" main--arbol2" src={arbol1} alt="barra" />
+      <div className="hero__arboles">
+        <img className="arbol1" src={arbol1} alt="barra" />
+        <img className="arbol2" src={arbol1} alt="barra" />
       </div>
 
-      <div className="main__slogan">
+      <div className="hero__slogan">
         <h2>Viaja Rapido y Seguro</h2>
       </div>
 
-      <div className="formContainer">
+      <div className="hero__form">
         { children }
       </div>
       

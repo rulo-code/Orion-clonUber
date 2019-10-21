@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/styles/components/Home.scss";
+import "../assets/styles/components/Header.scss";
 
 const Header = () => {
   return (
-    <div className="home__logo  flexRow ">
+    <div className="header">
       <Link to="/">
-        <div className="flexColumn ">
+        <div className="header__logo">
           <h1>City</h1>
           <p>Driver</p>
         </div>

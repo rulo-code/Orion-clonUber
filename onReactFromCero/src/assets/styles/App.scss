@@ -4,9 +4,11 @@
 body {
   margin: 0;
   font-family: $theme-font;
-  // background: $main-color;
 }
-
+a {
+  text-decoration: none;
+  color: #000
+}
 * {
   box-sizing: border-box;
   margin: 0;
