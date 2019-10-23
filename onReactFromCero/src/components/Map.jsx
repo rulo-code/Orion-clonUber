@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 
-const MapContainer = ({ google, markers }) => {
+
+
+const MapContainer = ({ google }) => {
+  
+  const API = 'http://localhost:3000/locations';
+
+  const [markers, setMarker] = useState([]);
+
+  useEffect(() => {
+    fetch(API)
+    .then(response => response.json())
+    .then(locations => setMarker(locations));
+  }, [])
   const [state, setState] = useState({
     show: true,
   });
@@ -20,13 +32,14 @@ const MapContainer = ({ google, markers }) => {
     }
   };
 
-  const onMarkerClick = (props, marker, e) => setInfoWindow({
+  const onMarkerClick = (props, marker, e) =>
+    setInfoWindow({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true,
     });
 
-  const onMapClicked = (props) => {
+  const onMapClicked = props => {
     if (infoWindow.showingInfoWindow) {
       setInfoWindow({
         selectedPlace: props,
@@ -37,10 +50,10 @@ const MapContainer = ({ google, markers }) => {
   };
 
   return (
-    <>
-      <button type="button" onClick={handleClick}>
+    <React.Fragment>
+      {/* <button type="button" onClick={handleClick}>
         {state.show ? 'Hide Map' : 'Show Map'}
-      </button>
+      </button> */}
       <div className="MapContainer">
         <Map
           onClick={onMapClicked}
@@ -69,7 +82,7 @@ const MapContainer = ({ google, markers }) => {
           </InfoWindow>
         </Map>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 export default GoogleApiWrapper({

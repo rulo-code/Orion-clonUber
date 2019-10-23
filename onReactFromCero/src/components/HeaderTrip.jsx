@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "@reach/router";
-import "../assets/styles/components/Header.scss";
+import "../assets/styles/components/HeaderTrip.scss";
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="headerTrip">
       <Link to="/">
-        <div className="header__logo">
+        <div className="headerTrip__logo">
           <h1>City</h1>
           <p>Driver</p>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect } from "@reach/router";
 import "../assets/styles/components/Home.scss";
 import "../assets/styles/components/Launcher.scss";
 const Launcher = props => {

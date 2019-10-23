@@ -13,10 +13,4 @@
     @include positionZ(relative, 7)
   }
 }
-.layoutEntry {
-  display:grid;
-  grid-template: 30vh 85vh 5vh / 1fr;
-  width: 100vw;
-  height: 100vh;
-}
 

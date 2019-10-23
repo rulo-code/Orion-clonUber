@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link } from '@reach/router';
 import { registerReguest } from '../actions';
 
 import '../assets/styles/components/Register.scss';
@@ -26,7 +26,6 @@ const Register = (props) => {
     event.preventDefault();
     props.registerReguest(form);
     console.log(form);
-    props.history.push('/');
   }
   return (
     <div className="register">

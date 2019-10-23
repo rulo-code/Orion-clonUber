@@ -1,20 +1,26 @@
 import React from "react";
 import Header from "./Header";
 import Hero from "./Hero";
-import Footer from "./Footer"
+import Map from "./Map";
+import Footer from "./Footer";
 import "../assets/styles/components/Layout.scss";
 
-const Layout = ({ children }) => (
-  <div className="layout">
-    <div className="layout__header">
-      <Header />
-    </div>
-    <div className="layout__hero">
-      <Hero>{children}</Hero>
-    </div>
-    <div className="layout__footer">
-      <Footer />
-    </div>
-  </div>
-);
+class Layout extends React.Component {
+  render() {
+    return (
+      <div className="layout">
+        <div className="layout__header">
+          <Header />
+        </div>
+        <div className="layout__hero">
+          <Hero>{this.props.children}</Hero>
+        </div>
+        <div className="layout__footer">
+          <Footer />
+        </div>
+      </div>
+    );
+  }
+}
+
 export default Layout;

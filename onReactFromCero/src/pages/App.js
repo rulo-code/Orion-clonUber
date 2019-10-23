@@ -1,29 +1,62 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Router, Switch, Route } from '@reach/router';
 
 import '../assets/styles/App.scss';
+import { connect } from 'react-redux';
 
 import Home from '../components/Home';
+import HomeLayout from "./HomeLayout";
+import TripLayout from "./TripLayout";
+import Pickup from "../components/Pickup";
 import Login from '../components/Login';
 import Register from '../components/Register';
-import Layout from '../components/Layout';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
 
-import MapContainer from '../components/MapContainer';
+import Map from '../components/Map';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Layout>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/map" component={MapContainer} />
-        </Switch>
-      </Layout>
+  // const [isAuth, setisAuth] = useState({
+  //   isAuth: false,
+  // });
+  const UserLogged = ({ children }) => {
 
-    </BrowserRouter>
+    return children({ isAuth: true });
+  };
+  // const handleLog = () => {
+  //   setisAuth({
+  //     isAuth: true,
+  //   });
+  // };
+
+  return (
+    <div>
+      <UserLogged>
+        {({ isAuth }) => (isAuth ? (
+          <TripLayout>
+            <Router className="router">
+              <Pickup path="/pickup" />
+            </Router>
+          </TripLayout>
+          ) : (
+            <HomeLayout>
+              <Router>
+                <Home path="/" />
+                <Login path="/login" />
+                <Register path="/register" />
+              </Router>
+            </HomeLayout>
+          ))}
+      </UserLogged>
+    </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { user: state.user };
+};
+
+export default connect(
+  mapStateToProps,
+  null,
+)(App);

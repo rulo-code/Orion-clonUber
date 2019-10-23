@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development"
+    "start": "webpack-dev-server --open --mode development",
+    "dev": "webpack-dev-server --history-api-fallback",
+    "server": "json-server locations.json",
+    "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
+    "lint": "eslint src/ --fix"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +39,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "google-maps-react": "^2.0.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
