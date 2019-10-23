@@ -8,6 +8,11 @@ import Home from '../components/Home';
 import HomeLayout from "./HomeLayout";
 import TripLayout from "./TripLayout";
 import Pickup from "../components/Pickup";
+import DropOff from "../components/DropOff";
+import Services from "../components/Services";
+import DriverFound from "../components/DriverFound";
+
+
 import Login from '../components/Login';
 import Register from '../components/Register';
 import Header from '../components/Header';
@@ -35,7 +40,10 @@ function App() {
         {({ isAuth }) => (isAuth ? (
           <TripLayout>
             <Router className="router">
-              <Pickup path="/pickup" />
+              <Pickup path="/" />
+              <DropOff path="/dropoff"/>
+              <Services path="/service"/>
+              <DriverFound path="/driverfound" />
             </Router>
           </TripLayout>
           ) : (

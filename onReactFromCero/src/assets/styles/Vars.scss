@@ -6,11 +6,16 @@ $second-color: #a8c798;
 $variation-color: #047cc4;
 $light-color: #fff;
 
+.active {
+  box-shadow: 5px 5px 5px 0px #33648875;
+}
+
 // MIXINS AND FUNCTIONS
 @function calculateRem($size) {
 	$remSize: $size / 16px;
 	@return $remSize * 1rem;
 }
+
 
 @mixin font-size($size) {
 	font-size: $size;
@@ -53,6 +58,7 @@ $light-color: #fff;
   @include font-size(20px)
   background: $second-color;
 }
+
 @function get-opacity($color, $amount) {
   @return rgba($color, $amount);
 }
