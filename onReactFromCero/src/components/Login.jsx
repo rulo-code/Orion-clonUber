@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import { connect } from 'react-redux';
 import { loginReguest } from '../actions';
 import '../assets/styles/components/Login.scss';
@@ -20,7 +20,6 @@ const Login = (props) => {
   const handleSubmit = event => {
     event.preventDefault();
     props.loginReguest(form);
-    console.log();
   }
   return (
     <div className="login">

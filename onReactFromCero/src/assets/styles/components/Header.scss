@@ -7,7 +7,7 @@
   &__logo {
     @include flexColumn();
     p {
-      color: $light-color;
+      color: $main-color;
       font-weight: bold;
     }
   }

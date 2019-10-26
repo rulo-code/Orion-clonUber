@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-
-
+import React, { useState, useEffect } from "react";
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 
 const MapContainer = ({ google }) => {
-  
-  const API = 'http://localhost:3000/locations';
+  const API = "http://localhost:3000/locations";
 
   const [markers, setMarker] = useState([]);
 
   useEffect(() => {
     fetch(API)
-    .then(response => response.json())
-    .then(locations => setMarker(locations));
-  }, [])
+      .then(response => response.json())
+      .then(locations => setMarker(locations));
+  }, []);
   const [state, setState] = useState({
-    show: true,
+    show: true
   });
 
   const [infoWindow, setInfoWindow] = useState({
     showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {},
+    selectedPlace: {}
   });
 
   const handleClick = () => {
@@ -36,7 +33,7 @@ const MapContainer = ({ google }) => {
     setInfoWindow({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true,
+      showingInfoWindow: true
     });
 
   const onMapClicked = props => {
@@ -44,24 +41,22 @@ const MapContainer = ({ google }) => {
       setInfoWindow({
         selectedPlace: props,
         activeMarker: null,
-        showingInfoWindow: false,
+        showingInfoWindow: false
       });
     }
   };
 
   return (
     <React.Fragment>
-      {/* <button type="button" onClick={handleClick}>
-        {state.show ? 'Hide Map' : 'Show Map'}
-      </button> */}
+     
       <div className="MapContainer">
         <Map
           onClick={onMapClicked}
           visible={state.show}
           classNAme="Map"
           google={google}
-          zoom={12}
-          initialCenter={{ lat: 4.7058695, lng: -74.0662957 }}
+          zoom={17}
+          initialCenter={{ lat: 4.7121064, lng: -74.121374 }}
         >
           {markers.map(marker => (
             <Marker
@@ -69,6 +64,9 @@ const MapContainer = ({ google }) => {
               key={marker.venueName}
               name={marker.venueName}
               position={{ lat: marker.venueLat, lng: marker.venueLon }}
+              icon={{
+                url: '/src/assets/static/custom-marker.png'
+              }}
             />
           ))}
 
@@ -86,5 +84,5 @@ const MapContainer = ({ google }) => {
   );
 };
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw',
+  apiKey: "AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw"
 })(MapContainer);
