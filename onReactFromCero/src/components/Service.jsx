@@ -1,6 +1,6 @@
 import React from "react";
-import standarCar from "/home/andres/Documents/Platzi/Orion-clonUber/onReactFromCero/src/assets/static/standarCar.png";
-import premiunCar from "/home/andres/Documents/Platzi/Orion-clonUber/onReactFromCero/src/assets/static/premiunCar.png";
+import standarCar from "../assets/static/standarCar.png";
+import premiunCar from "../assets/static/premiunCar.png";
 
 
 
