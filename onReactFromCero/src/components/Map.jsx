@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
+import React, { useState, useEffect } from 'react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 
 const MapContainer = ({ google }) => {
-  const API = "http://localhost:3000/locations";
+  const API = 'http://localhost:3000/locations';
 
   const [markers, setMarker] = useState([]);
 
   useEffect(() => {
     fetch(API)
-      .then(response => response.json())
-      .then(locations => setMarker(locations));
+      .then((response) => response.json())
+      .then((locations) => setMarker(locations))
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   const [state, setState] = useState({
-    show: true
+    show: true,
   });
 
   const [infoWindow, setInfoWindow] = useState({
     showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {}
+    selectedPlace: {},
   });
 
   const handleClick = () => {
@@ -29,43 +32,42 @@ const MapContainer = ({ google }) => {
     }
   };
 
-  const onMarkerClick = (props, marker, e) =>
-    setInfoWindow({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
+  const onMarkerClick = (props, marker, e) => setInfoWindow({
+    selectedPlace: props,
+    activeMarker: marker,
+    showingInfoWindow: true,
+  });
 
-  const onMapClicked = props => {
+  const onMapClicked = (props) => {
     if (infoWindow.showingInfoWindow) {
       setInfoWindow({
         selectedPlace: props,
         activeMarker: null,
-        showingInfoWindow: false
+        showingInfoWindow: false,
       });
     }
   };
 
   return (
-    <React.Fragment>
-     
-      <div className="MapContainer">
+    <>
+
+      <div className='MapContainer'>
         <Map
           onClick={onMapClicked}
           visible={state.show}
-          classNAme="Map"
+          classNAme='Map'
           google={google}
           zoom={17}
           initialCenter={{ lat: 4.7121064, lng: -74.121374 }}
         >
-          {markers.map(marker => (
+          {markers.map((marker) => (
             <Marker
               onClick={onMarkerClick}
               key={marker.venueName}
               name={marker.venueName}
               position={{ lat: marker.venueLat, lng: marker.venueLon }}
               icon={{
-                url: '/src/assets/static/custom-marker.png'
+                url: '/src/assets/static/custom-marker.png',
               }}
             />
           ))}
@@ -80,9 +82,9 @@ const MapContainer = ({ google }) => {
           </InfoWindow>
         </Map>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw"
+  apiKey: 'AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw',
 })(MapContainer);

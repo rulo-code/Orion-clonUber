@@ -9,102 +9,102 @@ import facebookIcon from '../assets/static/facebookIcon.png';
 
 const Register = (props) => {
   const [form, setValues] = useState({
-    name: "",
-    lastNane: "",
-    email: "",
-    mobileNumber: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    lastNane: '',
+    email: '',
+    mobileNumber: '',
+    password: '',
+    confirmPassword: '',
   });
-  const  handleInput = event => {
+  const handleInput = (event) => {
     setValues({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     props.registerReguest(form);
     console.log(form);
-  }
+  };
   return (
-    <div className="register">
-      <form className="register__form" onSubmit={handleSubmit}>
+    <div className='register'>
+      <form className='register__form' onSubmit={handleSubmit}>
         <h2>Crea una cuenta</h2>
-        <div className="fullName">
+        <div className='fullName'>
           <input
-            name="name"
+            name='name'
             onChange={handleInput}
-            className="input"
-            type="text"
-            placeholder="Nombre"
+            className='input'
+            type='text'
+            placeholder='Nombre'
           />
-          <input 
-            name="lastName"
+          <input
+            name='lastName'
             onChange={handleInput}
-            className="input" 
-            type="text" 
-            placeholder="Apellido"
+            className='input'
+            type='text'
+            placeholder='Apellido'
           />
         </div>
         <input
-          name="email"
+          name='email'
           onChange={handleInput}
-          className="input" 
-          type="text" 
-          placeholder="Correo"
+          className='input'
+          type='text'
+          placeholder='Correo'
         />
-        
+
         <input
-          name="mobileNumber"
+          name='mobileNumber'
           onChange={handleInput}
-          className="input" 
-          type="number" 
-          placeholder="Numero Celular"
+          className='input'
+          type='number'
+          placeholder='Numero Celular'
         />
-        <input 
-          name="password"
+        <input
+          name='password'
           onChange={handleInput}
-          className="input" 
-          type="password" 
-          placeholder="Contraseña"
+          className='input'
+          type='password'
+          placeholder='Contraseña'
         />
-        <input 
-          name="confirmPass"
+        <input
+          name='confirmPass'
           onChange={handleInput}
-          className="input" 
-          type="password" 
-          placeholder="Confirmar contraseña"
+          className='input'
+          type='password'
+          placeholder='Confirmar contraseña'
         />
-        <div className="terms">
-          <input  
-            type="checkbox" 
-            name="vehicle1" 
-            value="Bike"
+        <div className='terms'>
+          <input
+            type='checkbox'
+            name='vehicle1'
+            value='Bike'
           />
           Terminos y Condiciones
         </div>
-        <button type="submit" className="btn" href="/">Registrate</button>
+        <button type='submit' className='btn' href='/'>Registrate</button>
       </form>
-      <div className="register__redes">
+      <div className='register__redes'>
         <p>Registrate con:</p>
-        <div className="icons">
+        <div className='icons'>
           <div>
-            <a href="#">
-              <img className="imgIcon" src={facebookIcon} alt="facebook"/>
+            <a href='#'>
+              <img className='imgIcon' src={facebookIcon} alt='facebook' />
             </a>
           </div>
-          <div >
-            <a href="#">
-              <img className="imgIcon" src={googleIcon} alt="google"/>
+          <div>
+            <a href='#'>
+              <img className='imgIcon' src={googleIcon} alt='google' />
             </a>
           </div>
-        </div> 
-        <div className="toLogin">
+        </div>
+        <div className='toLogin'>
           <p>¿Ya tienes una cuenta?</p>
-          <Link className="signIn" to="/login">
+          <Link className='signIn' to='/login'>
             Inicia !
-          </Link>         
+          </Link>
         </div>
       </div>
     </div>

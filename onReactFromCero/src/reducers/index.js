@@ -1,14 +1,14 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case "LOGIN_REGUEST":
+    case 'LOGIN_REGUEST':
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
       };
-    case "REGISTER_REGUEST":
+    case 'REGISTER_REGUEST':
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
       };
     default:
       return state;

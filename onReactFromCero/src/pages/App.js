@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Router } from '@reach/router';
 
-import '../assets/styles/App.scss';
 import { connect } from 'react-redux';
 
 import HomeLayout from './HomeLayout';
@@ -14,20 +13,19 @@ import Pickup from '../components/Pickup';
 import DropOff from '../components/DropOff';
 import Services from '../components/Services';
 import DriverFound from '../components/DriverFound';
+import '../assets/styles/App.scss';
 
-function App({user}) {
-  console.log(user);
+function App({ user }) {
   const UserLogged = ({ children }) => {
-    if (user=== true) {
+    if (user === true) {
       return children({ isAuth: true });
     }
     return children({ isAuth: true });
   };
   return (
-    <div>
+    <>
       <UserLogged>
-        {({ isAuth }) => (isAuth
-          ?
+        {({ isAuth }) => (isAuth ?
           (
             <TripLayout>
               <Router className='router'>
@@ -37,8 +35,7 @@ function App({user}) {
                 <DriverFound path='/driverfound' />
               </Router>
             </TripLayout>
-          )
-          :
+          ) :
           (
             <HomeLayout>
               <Router className='router'>
@@ -49,7 +46,7 @@ function App({user}) {
             </HomeLayout>
           ))}
       </UserLogged>
-    </div>
+    </>
   );
 }
 

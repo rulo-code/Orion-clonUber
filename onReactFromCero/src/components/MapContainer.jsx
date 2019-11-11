@@ -21,10 +21,10 @@ const MapContainer = ({ google, markers }) => {
   };
 
   const onMarkerClick = (props, marker, e) => setInfoWindow({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true,
-    });
+    selectedPlace: props,
+    activeMarker: marker,
+    showingInfoWindow: true,
+  });
 
   const onMapClicked = (props) => {
     if (infoWindow.showingInfoWindow) {
@@ -38,19 +38,19 @@ const MapContainer = ({ google, markers }) => {
 
   return (
     <>
-      <button type="button" onClick={handleClick}>
+      <button type='button' onClick={handleClick}>
         {state.show ? 'Hide Map' : 'Show Map'}
       </button>
-      <div className="MapContainer">
+      <div className='MapContainer'>
         <Map
           onClick={onMapClicked}
           visible={state.show}
-          classNAme="Map"
+          classNAme='Map'
           google={google}
           zoom={12}
           initialCenter={{ lat: 4.7058695, lng: -74.0662957 }}
         >
-          {markers.map(marker => (
+          {markers.map((marker) => (
             <Marker
               onClick={onMarkerClick}
               key={marker.venueName}

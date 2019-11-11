@@ -1,12 +1,12 @@
-import React from "react";
-import "../assets/styles/components/FavoriteSites.scss";
+import React from 'react';
+import '../assets/styles/components/FavoriteSites.scss';
 
 const FavoriteSites = () => {
   return (
-    <div className="options">
-      <div className="fitMap">
+    <div className='options'>
+      <div className='fitMap'>
         <p>Fijar en el mapa</p>
-        <i class="fas fa-map-marker-alt"></i>
+        <i className='fas fa-map-marker-alt' />
       </div>
       <details>
         <summary>Sitios favoritos</summary>

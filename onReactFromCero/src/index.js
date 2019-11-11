@@ -6,13 +6,16 @@ import reducer from './reducers';
 import App from './pages/App';
 
 const initialState = {
-  "user": {},
+  'user': {},
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, initialState, composeEnhancers());
+
+const app = document.getElementById('app');
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('app')
+  app,
 );
