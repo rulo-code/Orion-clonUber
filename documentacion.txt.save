@@ -1,0 +1,35 @@
+
+ORION UBER CLONE DOCUMENTACION
+
+---------------------------------------------------------------
+**CONTENIDO DE LA CARPETA**
+
+Para comenzar se deja en banco un react app.
+
+Dentro de el tenemos 3 carpetas y 4 archivos.
+
+  node_modules: es donde viven todas las dependencias de node
+
+  puplic:contiene el index.js, es el HTML base
+
+  src: tendrá todas las rutas y archivos del proyecto
+
+    .gitignore: archivos ignorados por el repositorio.
+    package-losck.json:es donde se hace el llamado a todas las dependencias que hacen que react funcione
+    es el webpack funcionando.
+    package.json: Aquí estan todas las configuraciones de npm 
+----------------------------------------------------------------
+
+----- DIA 1 -----
+
+Metas: crear layout de las paginas:
+
+- Home: para la home se me ocurre un logo justo en el medio con una animación de desvanecido (que podría ser escusa para alguna peticion a API)
+  luego cuando ya se presente la home quiero que la animación de salida se integre con la entrada de los input
+  sign in y sign out 
+- sign in
+- sign u
+
+p
+
+

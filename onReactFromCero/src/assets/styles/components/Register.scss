@@ -1,0 +1,60 @@
+@import "../Vars.scss";
+
+.register{
+  display: grid;
+  grid-template: auto auto / 1fr;
+  grid-template-areas:
+        "form"
+        "redes";
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border: solid #000 2px;
+  border-radius: 1em;
+  &__form {
+    grid-area: form;
+    @include flexColumn();
+    h2 {
+      margin-bottom: .5em;
+    }
+    .fullName {
+      @include flex;
+      height: auto;
+      width: 90%;
+      margin: none;
+    }
+    .input {
+      @include input();
+    }
+    .terms {
+      margin-bottom: .5em;
+    }
+    .btn {
+      @include button();
+      margin-bottom: 0em;
+    }
+  }
+  &__redes {
+    @include flexColumn();
+    .icons {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      .imgIcon {
+        width: 3em;
+        margin-bottom: 1em;
+      }
+    }
+    .toLogin {
+      display: flex;
+      width: 100%;
+      line-height: initial;
+      justify-content: space-evenly;
+      .signIn {
+        font-weight: bold;
+        color: $variation-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+
+.none{
+  display: none;
+}
+.border{
+  border: red solid 2px;
+}
+.borderB{
+  border: blue solid 2px;
+}
+.homeContainer{
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  grid-template: 20vh 80vh / 1fr ;
+  grid-template-areas: "logo"
+                        "main";
+                        overflow: hidden;
+}
+.flexRow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.home__logo{
+  font-size: 1.5em;
+}
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.flexColumn p{
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.795);
+}
+
+
+

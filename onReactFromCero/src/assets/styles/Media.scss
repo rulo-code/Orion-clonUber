@@ -1,0 +1,68 @@
+@media only screen and (max-width: 1024px) {
+ .registerContainer{
+  font-size: 0.8em;
+ }
+ .main__slogan{
+  font-size: 1.5em;
+ }
+ .loginContainer{
+  font-size: 0.9em;
+ }
+ 
+}
+@media only screen and (max-width: 990px) {
+  .formContainer{
+    width: 40%;
+   }
+}
+
+
+@media only screen and (max-width: 768px){
+  .formContainer{
+    width: 40%;
+   }
+   .home__logo {
+    font-size: 1.5em;
+    justify-content: flex-start;
+    margin-left: 2em;
+  }
+} 
+@media only screen and (max-width: 425px){
+  .layoutContainer{
+    grid-template: 12vh 88vh / 1fr;
+  }
+  .formContainer{
+    width: 80%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    bottom: 0;
+   }
+   .home__logo {
+    font-size: 1em;
+    justify-content: center;
+    margin: 0;
+   }
+   .home__logo{
+    font-size: 1em;
+    justify-content: center;
+    margin: 0;
+   }
+   .main--barra {
+    height: 100%;
+    top: 5%;
+  }
+   .main--carro{
+    display: none;
+   }
+   .main__arboles{
+    display: none;
+   }
+   .main__slogan{
+    display: none;
+   }
+   .main--ciudad {
+    width: 48%;
+    top: -13%;
+  }
+}

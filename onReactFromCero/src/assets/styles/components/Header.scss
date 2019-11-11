@@ -1,0 +1,14 @@
+@import "../Vars.scss";
+
+.header{
+  @include font-size(25px);
+  @include positionZ(relative, 10);
+  top: 50%;
+  &__logo {
+    @include flexColumn();
+    p {
+      color: $main-color;
+      font-weight: bold;
+    }
+  }
+}
