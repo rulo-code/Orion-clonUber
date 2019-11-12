@@ -13,40 +13,35 @@ import Pickup from '../components/Pickup';
 import DropOff from '../components/DropOff';
 import Services from '../components/Services';
 import DriverFound from '../components/DriverFound';
+import NotFound from '../components/notFound';
+
 import '../assets/styles/App.scss';
 
 function App({ user }) {
-  const UserLogged = ({ children }) => {
-    if (user === true) {
-      return children({ isAuth: true });
-    }
-    return children({ isAuth: true });
-  };
-  return (
-    <>
-      <UserLogged>
-        {({ isAuth }) => (isAuth ?
-          (
-            <TripLayout>
-              <Router className='router'>
-                <Pickup path='/' />
-                <DropOff path='/dropoff' />
-                <Services path='/service' />
-                <DriverFound path='/driverfound' />
-              </Router>
-            </TripLayout>
-          ) :
-          (
-            <HomeLayout>
-              <Router className='router'>
-                <Home path='/' />
-                <Login path='/login' />
-                <Register path='/register' />
-              </Router>
-            </HomeLayout>
-          ))}
-      </UserLogged>
-    </>
+
+  const isAuth = user.auth;
+
+  if (isAuth) {
+    return (
+      <TripLayout>
+        <Router className='router'>
+          <NotFound default />
+          <Pickup path='/' />
+          <DropOff path='/dropoff' />
+          <Services path='/service' />
+          <DriverFound path='/driverfound' />
+        </Router>
+      </TripLayout>
+    );
+  } return (
+    <HomeLayout>
+      <Router className='router'>
+        <NotFound default />
+        <Home path='/' />
+        <Login path='/login' />
+        <Register path='/register' />
+      </Router>
+    </HomeLayout>
   );
 }
 

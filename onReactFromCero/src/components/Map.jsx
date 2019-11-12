@@ -7,12 +7,7 @@ const MapContainer = ({ google }) => {
   const [markers, setMarker] = useState([]);
 
   useEffect(() => {
-    fetch(API)
-      .then((response) => response.json())
-      .then((locations) => setMarker(locations))
-      .catch((err) => {
-        console.log(err);
-      });
+
   }, []);
   const [state, setState] = useState({
     show: true,

@@ -10,6 +10,7 @@ const Login = (props) => {
   const [form, setValues] = useState({
     email: '',
     password: '',
+    error: false,
   });
   const handleInput = (event) => {
     setValues({
@@ -19,8 +20,20 @@ const Login = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginReguest(form);
+
+    //* AGREGAR SERVICIO DE CONSULTA DE USUARIO
+
+    if (form.email === 'test@test.com') {
+      form.auth = true;
+      form.error = false;
+      props.loginReguest(form);
+      navigate('/');
+    } else {
+      form.error = true;
+      props.loginReguest(form);
+    }
   };
+  const { error } = form;
   return (
     <div className='login'>
       <form className='login__form' onSubmit={handleSubmit}>
@@ -45,6 +58,7 @@ const Login = (props) => {
         >
           Entrar
         </button>
+        {(error) ? 'Usuario no encontrado' : null}
         <a href='#'>¿Olvidaste tu constraseña?</a>
       </form>
       <div className='login__redes'>

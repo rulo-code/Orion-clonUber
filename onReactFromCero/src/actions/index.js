@@ -1,8 +1,14 @@
-export const loginReguest = (payload) => ({
-  type: 'LOGIN_REGUEST',
+const actions = {
+  loginRequest: 'LOGIN_REGUEST',
+  registerRequest: 'REGISTER_REGUEST',
+};
+const loginReguest = (payload) => ({
+  type: actions.loginRequest,
   payload,
 });
-export const registerReguest = (payload) => ({
-  type: 'REGISTER_REGUEST',
+const registerReguest = (payload) => ({
+  type: actions.registerRequest,
   payload,
 });
+
+export { loginReguest, registerReguest, actions };
