@@ -6,7 +6,8 @@ import reducer from './reducers';
 import App from './pages/App';
 
 const initialState = {
-  "user": {},
+  'user': {},
+  'apikey': 'AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw',
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, initialState, composeEnhancers());
@@ -14,5 +15,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

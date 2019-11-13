@@ -15,30 +15,29 @@ import DropOff from '../components/DropOff';
 import Services from '../components/Services';
 import DriverFound from '../components/DriverFound';
 
-function App({user}) {
-  console.log(user);
+function App({ user }) {
   const UserLogged = ({ children }) => {
-    if (user=== true) {
+    if (user === true) {
       return children({ isAuth: true });
     }
     return children({ isAuth: true });
   };
+  const API_KEY = 'AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw';
+  console.log(`Hola ${API_KEY}`);
   return (
     <div>
       <UserLogged>
-        {({ isAuth }) => (isAuth
-          ?
+        {({ isAuth }) => (isAuth ?
           (
             <TripLayout>
               <Router className='router'>
-                <Pickup path='/' />
-                <DropOff path='/dropoff' />
+                {/* <Pickup path='/' /> */}
+                <DropOff path='/' />
                 <Services path='/service' />
                 <DriverFound path='/driverfound' />
               </Router>
             </TripLayout>
-          )
-          :
+          ) :
           (
             <HomeLayout>
               <Router className='router'>
