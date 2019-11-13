@@ -43,7 +43,7 @@ const Map = compose(
         this.setState({
           originAddresses: result.originAddresses,
           destinationAddresses: result.destinationAddresses,
-          distance: result.rows[0].elements[0].distance.text,
+          distance: result.rows[0].elements[0].distance,
           duration: result.rows[0].elements[0].duration.text,
         });
       });
@@ -54,7 +54,7 @@ const Map = compose(
     <GoogleMap
       defaultZoom={8}
       defaultCenter={{ lat: 4.624335, lng: -74.063644 }}
-      MapStyle={{ styles: MapStyle }}
+      defaultOptions={{ styles: MapStyle }}
     >
       {props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>
