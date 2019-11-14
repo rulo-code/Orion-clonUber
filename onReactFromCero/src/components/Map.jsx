@@ -45,7 +45,6 @@ const MapContainer = ({ google }) => {
 
   return (
     <>
-
       <div className='MapContainer'>
         <Map
           onClick={onMapClicked}
