@@ -1,0 +1,64 @@
+@import "../Vars.scss";
+
+.driverInfo {
+  @include flexColumn();
+  width: 90%;
+  margin-bottom: 1em;
+  &__carnet {
+    @include flex();
+    justify-content: flex-start;
+    .carnet--name {
+      font-size: 1.5em;
+    }
+    .fa-user {
+      font-size: 2em;
+      margin-right: 1em;
+    }
+    .califacation {
+      display: flex;
+      color: rgba(51, 51, 51, 0.726) 
+    }
+  }
+  &__payMethod {
+    display: flex;
+    width: 100%;
+    padding: 0 .5em;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    .method {
+      display: flex;
+    }
+    i {
+      color: #95a71a;
+      margin-right: .5em;
+    }
+    .price {
+      font-weight: bold;
+    }
+  }
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: .5em;
+      outline: none;
+      border: 1px solid #333;
+      border-radius: 1em;
+      background: none;
+      text-transform: uppercase;
+      font-size: .7em;
+      font-weight: bold;
+      align-items: center;
+      i {
+        font-size: 1.8em;
+      }
+      .fa-window-close {
+        color: red
+      }
+    }
+  }
+}

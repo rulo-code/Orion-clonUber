@@ -1,0 +1,25 @@
+@import "../Vars.scss";
+
+.service {
+  border: #333 solid 1px;
+  border-radius: 1em;
+  max-width: 40%;
+  overflow: hidden;
+  text-align: center;
+  &__description {
+    text-align: left;
+    @include font-size(15px)
+    display: flex;
+    align-items: center;
+    img {
+      width: 3em;
+      float: right;
+    }
+    
+  }
+  &__precie {
+    background: #333;
+    color: $light-color;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,22 @@
+@import "../Vars.scss";
+
+.locations {
+  @include flexColumn();
+  height: auto;
+  input {
+    @include input();
+  }
+  .estimatedTime {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    i {
+      color: $second-color;
+      font-size: 1.3em;
+      margin-right: .3em;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+}

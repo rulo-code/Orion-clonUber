@@ -1,0 +1,14 @@
+@import "../Vars.scss";
+
+.pickup {
+  width: 100%;
+  height: inherit;
+  background: rgba(248, 248, 248, 0.705);
+  @include flexColumn;
+  input {
+    @include input();
+  }
+  .btn {
+    @include button();
+  }
+}

@@ -1,0 +1,19 @@
+@import "../Vars.scss";
+
+.driverFound {
+  @include flexColumn();
+  text-align: center;
+  &__locations {
+    margin-bottom: 1em;
+  }
+  &__service {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    }  
+  &__driverInfo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }   
+  }
