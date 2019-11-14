@@ -43,7 +43,7 @@ const Map = compose(
         this.setState({
           originAddresses: result.originAddresses,
           destinationAddresses: result.destinationAddresses,
-          distance: result.rows[0].elements[0].distance,
+          distance: result.rows[0].elements[0].distance.text,
           duration: result.rows[0].elements[0].duration.text,
         });
       });
