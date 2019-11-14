@@ -22,16 +22,21 @@ const Login = (props) => {
     event.preventDefault();
 
     //* AGREGAR SERVICIO DE CONSULTA DE USUARIO
-
-    if (form.email === 'test@test.com') {
-      form.auth = true;
-      form.error = false;
-      props.loginReguest(form);
-      navigate('/');
-    } else {
-      form.error = true;
-      props.loginReguest(form);
-    }
+    fetch(`http://localhost:3000/api/users/correo/${form.email}`).then(data => data.json()).then(
+      respuesta => { 
+        if (respuesta) {
+          form.auth = true;
+          form.error = false;
+          props.loginReguest(form);
+          navigate('/');
+        } else {
+          form.error = true
+          props.loginReguest(form);
+        }
+      }
+    );
+  
+  
   };
   const { error } = form;
   return (
