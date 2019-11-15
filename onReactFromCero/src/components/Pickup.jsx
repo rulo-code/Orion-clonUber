@@ -74,6 +74,4 @@ const Pickup = () => {
   );
 };
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw',
-})(Pickup);
+export default Pickup;
