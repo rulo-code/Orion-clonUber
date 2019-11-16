@@ -26,9 +26,15 @@ const Login = (props) => {
     callToLogin(form.email).then((response) => {
       const { data } = response;
       if (data.length > 0) {
-        form.auth = true;
-        form.error = false;
-        navigate('/');
+        const infoUser = data[0];
+
+        if (form.password === String(infoUser.password)) {
+          form.auth = true;
+          form.error = false;
+          navigate('/');
+        } else {
+          form.error = true;
+        }
       } else {
         form.error = true;
       }
