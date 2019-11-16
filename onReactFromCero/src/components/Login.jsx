@@ -21,8 +21,6 @@ const Login = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    //* AGREGAR SERVICIO DE CONSULTA DE USUARIO
     callToLogin(form.email).then((response) => {
       const { data } = response;
       if (data.length > 0) {
