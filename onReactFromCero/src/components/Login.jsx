@@ -28,12 +28,11 @@ const Login = (props) => {
       if (data.length > 0) {
         form.auth = true;
         form.error = false;
-        props.loginReguest(form);
         navigate('/');
       } else {
         form.error = true;
-        props.loginReguest(form);
       }
+      props.loginReguest(form);
     }).catch((err) => { console.warn(err); });
 
   };

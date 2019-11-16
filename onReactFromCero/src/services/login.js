@@ -1,6 +1,9 @@
 const service = 'http://localhost:3000/api/users/?correo=';
 
-const confingService = {};
+const confingService = {
+  method: 'GET',
+  mode: 'no-cors',
+};
 
 const callToLogin = (mail) => {
   return new Promise((resolve, reject) => {
