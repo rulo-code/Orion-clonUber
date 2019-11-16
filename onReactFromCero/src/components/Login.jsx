@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loginReguest } from '../actions';
 import googleIcon from '../assets/static/googleIcon.png';
 import facebookIcon from '../assets/static/facebookIcon.png';
+import callToLogin from '../services/login';
 import '../assets/styles/components/Login.scss';
 
 const Login = (props) => {
@@ -22,21 +23,19 @@ const Login = (props) => {
     event.preventDefault();
 
     //* AGREGAR SERVICIO DE CONSULTA DE USUARIO
-    fetch(`http://localhost:3000/api/users/correo/${form.email}`).then(data => data.json()).then(
-      respuesta => { 
-        if (respuesta) {
-          form.auth = true;
-          form.error = false;
-          props.loginReguest(form);
-          navigate('/');
-        } else {
-          form.error = true
-          props.loginReguest(form);
-        }
+    callToLogin(form.email).then((response) => {
+      const { data } = response;
+      if (data.length > 0) {
+        form.auth = true;
+        form.error = false;
+        props.loginReguest(form);
+        navigate('/');
+      } else {
+        form.error = true;
+        props.loginReguest(form);
       }
-    );
-  
-  
+    }).catch((err) => { console.warn(err); });
+
   };
   const { error } = form;
   return (
