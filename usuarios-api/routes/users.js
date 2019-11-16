@@ -12,7 +12,6 @@ function usersApi(app) {
 
     try {
       const users = await usersService.getUsers({ correo });
-
       res.status(200).json({
         data: users,
         message: 'user listed'

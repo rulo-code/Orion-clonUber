@@ -47,6 +47,7 @@ const Login = (props) => {
           className='input'
           type='email'
           placeholder='Email'
+          required
         />
         <input
           name='password'
@@ -54,6 +55,7 @@ const Login = (props) => {
           className='input'
           type='password'
           placeholder='password'
+          required
         />
         <button
           type='submit'
