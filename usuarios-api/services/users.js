@@ -6,8 +6,8 @@ class UsersService {
     this.mongoDB = new MongoLib();
   }
 
-  async getUsers({ tags }) {
-    const query = tags && { tags: { $in: tags } };
+  async getUsers({ correo }) {
+    const query = correo && { correo:  correo } ;
     const users = await this.mongoDB.getAll(this.collection, query);
     return users || [];
   }

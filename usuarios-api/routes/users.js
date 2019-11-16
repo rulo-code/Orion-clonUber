@@ -8,10 +8,10 @@ function usersApi(app) {
   const usersService = new UsersService();
 
   router.get('/', async function(req, res, next) {
-    const { tags } = req.query;
+    const { correo } = req.query;
 
     try {
-      const users = await usersService.getUsers({ tags });
+      const users = await usersService.getUsers({ correo });
 
       res.status(200).json({
         data: users,
