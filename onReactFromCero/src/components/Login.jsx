@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loginReguest } from '../actions';
 import googleIcon from '../assets/static/googleIcon.png';
 import facebookIcon from '../assets/static/facebookIcon.png';
+import callToLogin from '../services/login';
 import '../assets/styles/components/Login.scss';
 
 const Login = (props) => {
@@ -20,23 +21,24 @@ const Login = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    callToLogin(form.email).then((response) => {
+      const { data } = response;
+      if (data.length > 0) {
+        const infoUser = data[0];
 
-    //* AGREGAR SERVICIO DE CONSULTA DE USUARIO
-    fetch(`http://localhost:3000/api/users/correo/${form.email}`).then(data => data.json()).then(
-      respuesta => { 
-        if (respuesta) {
+        if (form.password === String(infoUser.password)) {
           form.auth = true;
           form.error = false;
-          props.loginReguest(form);
           navigate('/');
         } else {
-          form.error = true
-          props.loginReguest(form);
+          form.error = true;
         }
+      } else {
+        form.error = true;
       }
-    );
-  
-  
+      props.loginReguest(form);
+    }).catch((err) => { console.warn(err); });
+
   };
   const { error } = form;
   return (
@@ -49,6 +51,7 @@ const Login = (props) => {
           className='input'
           type='email'
           placeholder='Email'
+          required
         />
         <input
           name='password'
@@ -56,6 +59,7 @@ const Login = (props) => {
           className='input'
           type='password'
           placeholder='password'
+          required
         />
         <button
           type='submit'
