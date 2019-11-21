@@ -12,3 +12,11 @@
     @include button();
   }
 }
+.suggestion {
+  background: #fafafa;
+  border-bottom:#95dcea solid 2px ;
+  padding: .3em;
+}
+.suggestion:hover {
+  background: #95dcea;
+}

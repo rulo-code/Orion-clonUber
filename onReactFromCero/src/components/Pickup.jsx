@@ -21,19 +21,14 @@ const Pickup = ({ value, onChange, onSelect, getLocation }) => {
             <input
               {...getInputProps({
                 placeholder: 'Punto de origen',
-                className: 'location-search-input',
+                className: 'search-input',
               })}
             />
             <div className='autocomplete-dropdown-container'>
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion) => {
-                const className = suggestion.active ?
-                  'suggestion-item--active' :
-                  'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active ?
-                  { backgroundColor: '#fafafa', cursor: 'pointer' } :
-                  { backgroundColor: '#ffffff', cursor: 'pointer' };
+                const className = 'suggestion';
+                const style = { cursor: 'pointer' };
                 return (
                   <div
                     {...getSuggestionItemProps(suggestion, {

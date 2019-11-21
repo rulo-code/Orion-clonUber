@@ -22,9 +22,15 @@
     border-right: 2px solid rgba(51, 51, 51, 0.746);
   }                     
 }
-.sugerencia {
-  border: red solid 2px;
+.suggestion {
+  background: #fafafa;
+  border-bottom:#95dcea solid 2px ;
+  padding: .3em;
 }
+.suggestion:hover {
+  background: #95dcea;
+}
+
 .router {
   width: 100%;
   height: 100%;

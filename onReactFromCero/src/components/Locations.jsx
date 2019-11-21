@@ -29,7 +29,7 @@ const Locations = ({
             <div className='autocomplete-dropdown-container'>
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion) => {
-                const className = 'sugerencia';
+                const className = 'suggestion';
                 const style = { cursor: 'pointer' };
                 return (
                   <div
@@ -63,7 +63,7 @@ const Locations = ({
             <div className='autocomplete-dropdown-container'>
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion) => {
-                const className = 'suggestion-item';
+                const className = 'suggestion';
                 const style = { cursor: 'pointer' };
                 return (
                   <div
