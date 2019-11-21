@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
 import { compose, withProps, lifecycle } from 'recompose';
-import { withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, DirectionsRenderer, Marker } from 'react-google-maps';
 import MapStyle from '../assets/styles/components/MyMapStyles';
 
 const Map = compose(
@@ -15,18 +15,18 @@ const Map = compose(
   lifecycle({
   }),
 )((props) => {
-  const center = {
-    lat: 4.6438136,
-    lng: -74.1173041,
-  };
+
 
   return (
     <div>
       <GoogleMap
         defaultZoom={12}
-        defaultCenter={center}
+        defaultCenter={props.center}
         defaultOptions={{ styles: MapStyle }}
       >
+        {props.origin && (
+          <Marker position={{ lat: props.origin.lat, lng: props.origin.lng }} onClick={props.onMarkerClick} />
+        )}
         {props.directions && (
           <DirectionsRenderer directions={props.directions} />
         ) }

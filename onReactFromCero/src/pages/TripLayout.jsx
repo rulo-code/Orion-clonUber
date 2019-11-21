@@ -1,8 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { Router } from '@reach/router';
+
 import Header from '../components/HeaderTrip';
 import MyMap from '../components/Map';
+import Pickup from '../components/Pickup';
+import DropOff from '../components/DropOff';
+import Services from '../components/Services';
+import DriverFound from '../components/DriverFound';
+import NotFound from '../components/notFound';
 import '../assets/styles/pages/TripLayout.scss';
 
 const TripLayout = (props) => {
@@ -11,10 +18,35 @@ const TripLayout = (props) => {
 
   const [destinationValue, setDestinationValue] = useState('');
 
-  const [origin, setOrigin] = useState({});
+  const [origin, setOrigin] = useState({
+    lat: '',
+    lng: '',
+  });
 
   const [destination, setDestination] = useState({});
   const [directions, setDirections] = useState({});
+  const [center, setCenter] = useState({
+    lat: 4.6550365,
+    lng: -74.1381167,
+  });
+  const getCoordinates = (position) => {
+    console.log(position.coords.latitude);
+    setOrigin({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    });
+    setCenter({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    });
+  };
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(getCoordinates);
+    } else {
+      alert('Geolocation is not supported by browser');
+    }
+  };
 
   const handleChange = (originValue) => {
     if (originValue.length === 0) {
@@ -94,7 +126,25 @@ const TripLayout = (props) => {
       </div>
 
       <div className='trip__info'>
-        <div className='Dashboard-header'>
+        <Router className='router'>
+          <NotFound default />
+          <Pickup
+            path='/'
+            value={originValue}
+            onChange={handleChange}
+            onSelect={handleSelectOrigin}
+            getLocation={getLocation}
+          />
+          <DropOff
+            value={originValue}
+            onChange={handleChange}
+            onSelect={handleSelectOrigin}
+            path='/dropoff'
+          />
+          <Services path='/service' />
+          <DriverFound path='/driverfound' />
+        </Router>
+        {/* <div className='Dashboard-header'>
           <h2>Create a new service</h2>
 
         </div>
@@ -166,7 +216,7 @@ const TripLayout = (props) => {
           )}
         </PlacesAutocomplete>
 
-        <button type='button' onClick={handlleDirectionsService}>Go</button>
+        <button type='button' onClick={handlleDirectionsService}>Go</button> */}
       </div>
       <div className='trip__map'>
         <MyMap
@@ -175,6 +225,7 @@ const TripLayout = (props) => {
           originValue={originValue}
           destinationValue={destinationValue}
           directions={directions}
+          center={center}
         />
       </div>
     </div>

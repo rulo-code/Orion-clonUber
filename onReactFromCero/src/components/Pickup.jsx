@@ -1,39 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from '@reach/router';
-import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
 
 import '../assets/styles/components/Pickup.scss';
-import FavoriteSites from './FavoriteSites';
 
-const Pickup = () => {
-  const [originValue, setOriginValue] = useState('');
-  const [origin, setOrigin] = useState({});
-  const handleChange = (originValue) => {
-    setOriginValue(originValue);
-  };
-  const handleState = (state, type) => {
-    setOrigin({
-      [type]: state,
-    });
-  };
-  const handleSelectOrigin = (originValue) => {
-    geocodeByAddress(originValue)
-      .then((results) => getLatLng(results[0]))
-      .then((latLng) => handleState(latLng, 'origin'))
-      .catch((error) => console.error('Error', error));
-
-  };
+const Pickup = ({ value, onChange, onSelect, getLocation }) => {
   return (
     <div className='pickup'>
       <h2>¿Dónde te recogemos?</h2>
       <PlacesAutocomplete
-        value={originValue}
-        onChange={handleChange}
-        onSelect={handleSelectOrigin}
+        value={value}
+        onChange={onChange}
+        onSelect={onSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
@@ -68,7 +49,7 @@ const Pickup = () => {
           </div>
         )}
       </PlacesAutocomplete>
-      <FavoriteSites />
+      <button type='button' onClick={getLocation}>Obtener mis coordenadas</button>
       <Link to='/dropoff' className='btn' type='button'>Siguiente</Link>
     </div>
   );
