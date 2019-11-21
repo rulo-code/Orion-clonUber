@@ -20,7 +20,7 @@ const Pickup = ({ value, onChange, onSelect, getLocation }) => {
           <div>
             <input
               {...getInputProps({
-                placeholder: 'Search Places ...',
+                placeholder: 'Punto de origen',
                 className: 'location-search-input',
               })}
             />
@@ -49,7 +49,11 @@ const Pickup = ({ value, onChange, onSelect, getLocation }) => {
           </div>
         )}
       </PlacesAutocomplete>
-      <button type='button' onClick={getLocation}>Obtener mis coordenadas</button>
+      <p>
+        Obtner mis ubicación
+        <i role='button' className='fas fa-map-marker-alt' onClick={getLocation} />
+      </p>
+      {/* <button type='button' onClick={getLocation}>Obtener mis coordenadas</button> */}
       <Link to='/dropoff' className='btn' type='button'>Siguiente</Link>
     </div>
   );

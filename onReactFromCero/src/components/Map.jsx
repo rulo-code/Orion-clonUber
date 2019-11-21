@@ -15,17 +15,20 @@ const Map = compose(
   lifecycle({
   }),
 )((props) => {
-
-
+  const center = {
+    lat: 4.6550365,
+    lng: -74.1381167,
+  };
   return (
+
     <div>
       <GoogleMap
         defaultZoom={12}
-        defaultCenter={props.center}
+        defaultCenter={center}
         defaultOptions={{ styles: MapStyle }}
       >
-        {props.origin && (
-          <Marker position={{ lat: props.origin.lat, lng: props.origin.lng }} onClick={props.onMarkerClick} />
+        {props.origin && !props.destinations && (
+          <Marker position={{ lat: props.origin.lat, lng: props.origin.lng }} />
         )}
         {props.directions && (
           <DirectionsRenderer directions={props.directions} />

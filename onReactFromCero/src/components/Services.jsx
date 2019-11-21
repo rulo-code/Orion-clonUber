@@ -1,48 +1,71 @@
-import React from 'react'
-import { Link } from "@reach/router";
-import "../assets/styles/components/Services.scss";
-import "../assets/styles/Vars.scss"
-import Service from "../components/Service"
-import standarCar from "../assets/static/standarCar.png";
-import premiunCar from "../assets/static/premiunCar.png";
+import React from 'react';
+import { Link } from '@reach/router';
+import '../assets/styles/components/Services.scss';
+import '../assets/styles/Vars.scss';
+import Service from './Service';
+import standarCar from '../assets/static/standarCar.png';
+import premiunCar from '../assets/static/premiunCar.png';
 import Locations from './Locations';
 
-
-const Services = () => {
+const Services = ({
+  originValue,
+  destinationValue,
+  onChange,
+  onChange2,
+  onSelect,
+  onSelect2,
+  onClick,
+  duration,
+}) => {
   return (
-    <div className="services">
-      <div className="services__locations">
-        <Locations />
+    <div className='services'>
+      <div className='services__locations'>
+        <Locations
+          originValue={originValue}
+          destinationValue={destinationValue}
+          onChange={onChange}
+          onChange2={onChange2}
+          onSelect={onSelect}
+          onSelect2={onSelect2}
+        />
       </div>
-      <div className="services__type">
-        <div className="service active">
+      <div className='estimatedTime'>
+        <i className='fas fa-clock' />
+        <p>
+          Te llevamos en
+          {' '}
+          <span>{duration}</span>
+        </p>
+      </div>
+      <div className='services__type'>
+        <div className='service active'>
           <h3>Xpress</h3>
-          <div className="service__description">
+          <div className='service__description'>
             <p>Auto basico, precio bajo</p>
-            <img src={standarCar} alt="xpress" />
+            <img src={standarCar} alt='xpress' />
           </div>
-          <p className="service__precie">$ 1000</p>
+          <p className='service__precie'>$ 1000</p>
         </div>
-        <div className="service">
+        <div className='service'>
           <h3>Premiun</h3>
-          <div className="service__description">
+          <div className='service__description'>
             <p>Viaja con confort</p>
-            <img src={premiunCar} alt="xpress" />
+            <img src={premiunCar} alt='xpress' />
           </div>
-          <p className="service__precie">$ 1200</p>
+          <p className='service__precie'>$ 1200</p>
         </div>
-        
+
       </div>
-      <div className="services__payMethod">
+      <div className='services__payMethod'>
         <div>
-          <i class="fas fa-money-bill"></i>
+          <i className='fas fa-money-bill' />
           <p>Efectivo</p>
         </div>
         <div>
-         <i class="fas fa-cog"></i>
+          <i className='fas fa-cog' />
         </div>
       </div>
-      <Link className="btn" to="/driverfound" >Confirmar</Link>
+      <Link className='btn' onClick={onClick} to='/driverfound'>Confirmar</Link>
     </div>
   );
 };

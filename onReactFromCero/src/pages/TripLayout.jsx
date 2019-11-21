@@ -23,24 +23,25 @@ const TripLayout = (props) => {
     lng: '',
   });
 
-  const [destination, setDestination] = useState({});
+  const [destination, setDestination] = useState(null);
   const [directions, setDirections] = useState({});
-  const [center, setCenter] = useState({
-    lat: 4.6550365,
-    lng: -74.1381167,
+  const [userLocation, setUserLocation] = useState({});
+  const [tripInfo, setTripInfo] = useState({
+    duration: '',
+    distance: '',
   });
+
   const getCoordinates = (position) => {
     console.log(position.coords.latitude);
     setOrigin({
       lat: position.coords.latitude,
       lng: position.coords.longitude,
     });
-    setCenter({
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-    });
+    setOriginValue('Mi ubicación');
+
   };
   const getLocation = () => {
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(getCoordinates);
     } else {
@@ -101,6 +102,10 @@ const TripLayout = (props) => {
     },
     (result, status) => {
       setDirections(response);
+      setTripInfo({
+        duration: result.rows[0].elements[0].duration.text,
+        distance: result.rows[0].elements[0].distance.text,
+      });
     });
   };
   const handlleDirectionsService = () => {
@@ -143,83 +148,24 @@ const TripLayout = (props) => {
             onSelect={handleSelectOrigin}
             onSelect2={handleSelectDestination}
             path='/dropoff'
+            onClick={handlleDirectionsService}
           />
-          <Services path='/service' />
+          <Services
+            path='/service'
+            originValue={originValue}
+            destinationValue={destinationValue}
+            onChange={handleChange}
+            onChange2={handleChange2}
+            onSelect={handleSelectOrigin}
+            onSelect2={handleSelectDestination}
+            duration={tripInfo.duration}
+            onClick={handlleDirectionsService}
+
+
+          />
           <DriverFound path='/driverfound' />
         </Router>
-        {/* <div className='Dashboard-header'>
-          <h2>Create a new service</h2>
 
-        </div>
-
-        <PlacesAutocomplete
-          value={originValue}
-          onChange={handleChange}
-          onSelect={handleSelectOrigin}
-        >
-          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-            <div>
-              <input
-                {...getInputProps({
-                  placeholder: 'Origin',
-                  className: 'location-search-input',
-                })}
-              />
-              <div className='autocomplete-dropdown-container'>
-                {loading && <div>Loading...</div>}
-                {suggestions.map((suggestion) => {
-                  const className = 'sugerencia';
-                  const style = { cursor: 'pointer' };
-                  return (
-                    <div
-                      {...getSuggestionItemProps(suggestion, {
-                        className,
-                        style,
-                      })}
-                    >
-                      <span>{suggestion.description}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </PlacesAutocomplete>
-        <PlacesAutocomplete
-          value={destinationValue}
-          onChange={handleChange2}
-          onSelect={handleSelectDestination}
-        >
-          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-            <div>
-              <input
-                {...getInputProps({
-                  placeholder: 'Destination',
-                  className: 'location-search-input',
-                })}
-              />
-              <div className='autocomplete-dropdown-container'>
-                {loading && <div>Loading...</div>}
-                {suggestions.map((suggestion) => {
-                  const className = 'suggestion-item';
-                  const style = { cursor: 'pointer' };
-                  return (
-                    <div
-                      {...getSuggestionItemProps(suggestion, {
-                        className,
-                        style,
-                      })}
-                    >
-                      <span>{suggestion.description}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </PlacesAutocomplete>
-
-        <button type='button' onClick={handlleDirectionsService}>Go</button> */}
       </div>
       <div className='trip__map'>
         <MyMap
@@ -228,7 +174,7 @@ const TripLayout = (props) => {
           originValue={originValue}
           destinationValue={destinationValue}
           directions={directions}
-          center={center}
+          userLocation={userLocation}
         />
       </div>
     </div>
