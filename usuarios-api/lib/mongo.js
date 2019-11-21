@@ -39,13 +39,13 @@ class MongoLib {
     });
   }
 
-  get(collection, id) {
+  get(collection,id) {
     return this.connect().then(db => {
-      return db.collection(collection).findOne({ _id: ObjectId(id) });
+      return db.collection(collection).findOne({id: ObjectId(id) });
     });
   }
 
-  create(collection, data) {
+  create(collection,data) {
     return this.connect()
       .then(db => {
         return db.collection(collection).insertOne(data);
@@ -58,7 +58,7 @@ class MongoLib {
       .then(db => {
         return db
           .collection(collection)
-          .updateOne({ _id: ObjectId(id) }, { $set: data }, { upsert: true });
+          .updateOne({ id: ObjectId(id) }, { $set: data }, { upsert: true });
       })
       .then(result => result.upsertedId || id);
   }
@@ -66,7 +66,7 @@ class MongoLib {
   delete(collection, id) {
     return this.connect()
       .then(db => {
-        return db.collection(collection).deleteOne({ _id: ObjectId(id) });
+        return db.collection(collection).deleteOne({ id: ObjectId(id) });
       })
       .then(() => id);
   }

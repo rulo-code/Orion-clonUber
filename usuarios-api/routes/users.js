@@ -1,6 +1,13 @@
 const express = require('express');
 const UsersService = require('../services/users');
 
+const {
+  userIdSchema,
+  createMovieSchema,
+  updateMovieSchema
+}= require('../utils/schemas/users');
+const validationHandler = require ('../utils/middleware/validationHandler');
+
 function usersApi(app) {
   const router = express.Router();
   app.use('/api/users', router);
@@ -21,7 +28,7 @@ function usersApi(app) {
     }
   });
 
-  router.get('/:userId', async function(req, res, next) {
+  router.get('/:userId',validationHandler({userId:userIdSchema},'params'), async function(req, res, next) {
     const { userId } = req.params;
 
     try {
@@ -36,7 +43,7 @@ function usersApi(app) {
     }
   });
 
-  router.post('/', async function(req, res, next) {
+  router.post('/', validationHandler( createMovieSchema), async function(req, res, next) {
     const { body: user } = req;
     try {
       const createdUserId = await usersService.createUser({ user});
@@ -50,7 +57,7 @@ function usersApi(app) {
     }
   });
 
-  router.put('/:userId', async function(req, res, next) {
+  router.put('/:userId', validationHandler({userId:userIdSchema},'params'), validationHandler( updateMovieSchema),  async function(req, res, next) {
     const { userId } = req.params;
     const { body: movie } = req;
 
@@ -69,7 +76,7 @@ function usersApi(app) {
     }
   });
 
-  router.delete('/:userId', async function(req, res, next) {
+  router.delete('/:userId', validationHandler({userId:userIdSchema},'params'), async function(req, res, next) {
     const { userId } = req.params;
 
     try {
