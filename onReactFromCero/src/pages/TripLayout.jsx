@@ -136,9 +136,12 @@ const TripLayout = (props) => {
             getLocation={getLocation}
           />
           <DropOff
-            value={originValue}
+            originValue={originValue}
+            destinationValue={destinationValue}
             onChange={handleChange}
+            onChange2={handleChange2}
             onSelect={handleSelectOrigin}
+            onSelect2={handleSelectDestination}
             path='/dropoff'
           />
           <Services path='/service' />
