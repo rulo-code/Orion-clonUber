@@ -7,8 +7,8 @@ import MapStyle from '../assets/styles/components/MyMapStyles';
 const Map = compose(
   withProps({
     loadingElement: <div style={{ height: '100%' }} />,
-    containerElement: <div style={{ height: '600px' }} />,
-    mapElement: <div style={{ height: '80%', width: '100%' }} />,
+    containerElement: <div style={{ height: '100%' }} />,
+    mapElement: <div style={{ height: '100%', width: '100%' }} />,
   }),
   withGoogleMap,
 
