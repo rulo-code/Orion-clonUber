@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import Header from '../components/HeaderTrip';
@@ -5,11 +6,15 @@ import MyMap from '../components/Map';
 import '../assets/styles/pages/TripLayout.scss';
 
 const TripLayout = (props) => {
+
   const [originValue, setOriginValue] = useState('');
+
   const [destinationValue, setDestinationValue] = useState('');
+
   const [origin, setOrigin] = useState({});
+
   const [destination, setDestination] = useState({});
-  const [showMap, setShowMAp] = useState(false);
+  const [directions, setDirections] = useState({});
 
   const handleChange = (originValue) => {
     if (originValue.length === 0) {
@@ -23,15 +28,18 @@ const TripLayout = (props) => {
     }
     setDestinationValue(destinationValue);
   };
-  const handleOrigin = (state, type) => {
+  const handleOrigin = (state) => {
     setOrigin(state);
   };
   const handleDestination = (state, type) => {
     setDestination(state);
   };
   const handleSelectOrigin = (originValue) => {
+
     setOriginValue(originValue);
-    console.log(`origin value: ${originValue}`);
+
+    // console.log(`origin value: ${originValue}`);
+
     geocodeByAddress(originValue)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => handleOrigin(latLng))
@@ -48,6 +56,37 @@ const TripLayout = (props) => {
       .catch((error) => console.error('Error', error));
 
   };
+  const handleDistanceMatrix = (response) => {
+    const DistanceService = new window.google.maps.DistanceMatrixService();
+
+    DistanceService.getDistanceMatrix({
+      origins: [new window.google.maps.LatLng(origin.lat, origin.lng)],
+      destinations: [new window.google.maps.LatLng(destination.lat, destination.lng)],
+      travelMode: window.google.maps.TravelMode.DRIVING,
+      avoidHighways: false,
+      avoidTolls: false,
+      unitSystem: window.google.maps.UnitSystem.IMPERIAL,
+    },
+    (result, status) => {
+      setDirections(response);
+    });
+  };
+  const handlleDirectionsService = () => {
+    const DirectionsService = new window.google.maps.DirectionsService();
+
+    DirectionsService.route({
+      origin: new window.google.maps.LatLng(origin.lat, origin.lng),
+      destination: new window.google.maps.LatLng(destination.lat, destination.lng),
+      travelMode: window.google.maps.TravelMode.DRIVING,
+    }, (result, status) => {
+      if (status === window.google.maps.DirectionsStatus.OK) {
+        handleDistanceMatrix(result);
+      } else {
+        console.error(`error fetching directions ${result}`);
+      }
+    });
+  };
+
   return (
     <div className='trip'>
       <div className='trip__header'>
@@ -76,7 +115,7 @@ const TripLayout = (props) => {
               <div className='autocomplete-dropdown-container'>
                 {loading && <div>Loading...</div>}
                 {suggestions.map((suggestion) => {
-                  const className = 'suggestion-item';
+                  const className = 'sugerencia';
                   const style = { cursor: 'pointer' };
                   return (
                     <div
@@ -127,16 +166,16 @@ const TripLayout = (props) => {
           )}
         </PlacesAutocomplete>
 
+        <button type='button' onClick={handlleDirectionsService}>Go</button>
       </div>
       <div className='trip__map'>
-        {origin.lat && destination.lat && (
-          <MyMap
-            origin={origin}
-            destination={destination}
-            originValue={originValue}
-            destinationValue={destinationValue}
-          />
-        )}
+        <MyMap
+          origin={origin}
+          destination={destination}
+          originValue={originValue}
+          destinationValue={destinationValue}
+          directions={directions}
+        />
       </div>
     </div>
   );
