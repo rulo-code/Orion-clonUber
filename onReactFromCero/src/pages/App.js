@@ -26,8 +26,7 @@ function App({ user }) {
       <TripLayout>
         <Router className='router'>
           <NotFound default />
-          <Pickup path='/' />
-          <DropOff path='/dropoff' />
+          <DropOff path='/' />
           <Services path='/service' />
           <DriverFound path='/driverfound' />
         </Router>

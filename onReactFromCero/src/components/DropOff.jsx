@@ -1,18 +1,29 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import '../assets/styles/components/DropOff.scss';
-import FavoriteSites from './FavoriteSites';
 
-const DropOff = () => {
+import Locations from './Locations';
+
+const DropOff = ({
+  originValue,
+  destinationValue,
+  onChange,
+  onChange2,
+  onSelect,
+  onSelect2,
+  onClick,
+}) => {
   return (
     <div className='dropOff'>
-      <h2>Estoy en : </h2>
-      <input type='text' value='call 108 # 77c - 22' />
-      <h2>Voy para : </h2>
-      <input type='text' value='call 108 # 77c - 22' />
-      <FavoriteSites />
-
-      <Link className='btn' to='/service'>Viajar</Link>
+      <Locations
+        originValue={originValue}
+        destinationValue={destinationValue}
+        onChange={onChange}
+        onChange2={onChange2}
+        onSelect={onSelect}
+        onSelect2={onSelect2}
+      />
+      <Link className='btn' onClick={onClick} to='/service'>Viajar</Link>
     </div>
   );
 };

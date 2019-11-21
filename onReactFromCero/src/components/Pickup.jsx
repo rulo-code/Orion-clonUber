@@ -1,16 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from '@reach/router';
-import '../assets/styles/components/Pickup.scss';
-import FavoriteSites from './FavoriteSites';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
-const Pickup = () => {
+import '../assets/styles/components/Pickup.scss';
+
+const Pickup = ({ value, onChange, onSelect, getLocation }) => {
   return (
     <div className='pickup'>
       <h2>¿Dónde te recogemos?</h2>
-      <input type='text' defaultValue='call 108 # 77c - 22' />
-      <FavoriteSites />
+      <PlacesAutocomplete
+        value={value}
+        onChange={onChange}
+        onSelect={onSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            <input
+              {...getInputProps({
+                placeholder: 'Punto de origen',
+                className: 'location-search-input',
+              })}
+            />
+            <div className='autocomplete-dropdown-container'>
+              {loading && <div>Loading...</div>}
+              {suggestions.map((suggestion) => {
+                const className = suggestion.active ?
+                  'suggestion-item--active' :
+                  'suggestion-item';
+                // inline style for demonstration purpose
+                const style = suggestion.active ?
+                  { backgroundColor: '#fafafa', cursor: 'pointer' } :
+                  { backgroundColor: '#ffffff', cursor: 'pointer' };
+                return (
+                  <div
+                    {...getSuggestionItemProps(suggestion, {
+                      className,
+                      style,
+                    })}
+                  >
+                    <span>{suggestion.description}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
+      <p>
+        Obtner mis ubicación
+        <i role='button' className='fas fa-map-marker-alt' onClick={getLocation} />
+      </p>
+      {/* <button type='button' onClick={getLocation}>Obtener mis coordenadas</button> */}
       <Link to='/dropoff' className='btn' type='button'>Siguiente</Link>
     </div>
   );
 };
+
 export default Pickup;

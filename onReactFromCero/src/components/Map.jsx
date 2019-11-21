@@ -1,84 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+/* eslint-disable react/jsx-one-expression-per-line */
+import React, { useState } from 'react';
+import { compose, withProps, lifecycle } from 'recompose';
+import { withGoogleMap, GoogleMap, DirectionsRenderer, Marker } from 'react-google-maps';
+import MapStyle from '../assets/styles/components/MyMapStyles';
 
-const MapContainer = ({ google }) => {
-  const API = 'http://localhost:3000/locations';
+const Map = compose(
+  withProps({
+    loadingElement: <div style={{ height: '100%' }} />,
+    containerElement: <div style={{ height: '600px' }} />,
+    mapElement: <div style={{ height: '80%', width: '100%' }} />,
+  }),
+  withGoogleMap,
 
-  const [markers, setMarker] = useState([]);
-
-  useEffect(() => {
-
-  }, []);
-  const [state, setState] = useState({
-    show: true,
-  });
-
-  const [infoWindow, setInfoWindow] = useState({
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {},
-  });
-
-  const handleClick = () => {
-    if (state.show) {
-      setState({ show: false });
-    } else {
-      setState({ show: true });
-    }
+  lifecycle({
+  }),
+)((props) => {
+  const center = {
+    lat: 4.6550365,
+    lng: -74.1381167,
   };
-
-  const onMarkerClick = (props, marker, e) => setInfoWindow({
-    selectedPlace: props,
-    activeMarker: marker,
-    showingInfoWindow: true,
-  });
-
-  const onMapClicked = (props) => {
-    if (infoWindow.showingInfoWindow) {
-      setInfoWindow({
-        selectedPlace: props,
-        activeMarker: null,
-        showingInfoWindow: false,
-      });
-    }
-  };
-
   return (
-    <>
-      <div className='MapContainer'>
-        <Map
-          onClick={onMapClicked}
-          visible={state.show}
-          classNAme='Map'
-          google={google}
-          zoom={17}
-          initialCenter={{ lat: 4.7121064, lng: -74.121374 }}
-        >
-          {markers.map((marker) => (
-            <Marker
-              onClick={onMarkerClick}
-              key={marker.venueName}
-              name={marker.venueName}
-              position={{ lat: marker.venueLat, lng: marker.venueLon }}
-              icon={{
-                url: '/src/assets/static/custom-marker.png',
-              }}
-            />
-          ))}
 
-          <InfoWindow
-            marker={infoWindow.activeMarker}
-            visible={infoWindow.showingInfoWindow}
-          >
-            <div>
-              <h1>{infoWindow.selectedPlace.name}</h1>
-            </div>
-          </InfoWindow>
-        </Map>
-      </div>
-    </>
+    <div>
+      <GoogleMap
+        defaultZoom={12}
+        defaultCenter={center}
+        defaultOptions={{ styles: MapStyle }}
+      >
+        {props.origin && !props.destinations && (
+          <Marker position={{ lat: props.origin.lat, lng: props.origin.lng }} />
+        )}
+        {props.directions && (
+          <DirectionsRenderer directions={props.directions} />
+        ) }
+
+      </GoogleMap>
+
+    </div>
   );
-};
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw',
-})(MapContainer);
+});
+
+export default Map;
