@@ -37,12 +37,12 @@ Puedes clonar o hacer un fork a este repositorio para correr el proyecto en tu l
 ![](https://i.ibb.co/64W60dG/page6.png)
 
 
-##Autores
+## Autores
 - [Camilo Santana](https://github.com/drew-santanahttp:// "Camilo Santana")
 - [Diego Cruz](https://github.com/AbejaCruz "Diego Cruz")
 - [Jeffer Barragán](https://github.com/leshz "Jeffer Barragán")
 
-##Agradecimientos
+## Agradecimientos
 El resultado de este proyecto es en gran parte gracias a la mentoria obtenida por todo el equido de la Escula de JavaScript, un proyecto de innovación educativa de [Platzi](https://github.com/platzi "Platzi"), la plataforma online de aprendizaje más grande de latinoamerica.
 
 
