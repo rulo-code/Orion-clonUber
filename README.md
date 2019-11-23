@@ -29,7 +29,7 @@ Puedes clonar o hacer un fork a este repositorio para correr el proyecto en tu l
 
 2) Obtener la ubición del pasajero: Se puede obtener la ubicación del navegador o cualquier otro punto de origen
 ![](https://i.ibb.co/qR226sF/page4.png)
-3) General ruta entre origen y destino con datos de trayecto.
+3) Generar ruta entre origen y destino con datos de trayecto.
 
 ![](https://i.ibb.co/C83FTYH/page5.png)
 
