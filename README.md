@@ -29,7 +29,7 @@ Puedes clonar o hacer un fork a este repositorio para correr el proyecto en tu l
 
 2) Obtener la ubición del pasajero: Se puede obtener la ubicación del navegador o cualquier otro punto de origen
 ![](https://i.ibb.co/qR226sF/page4.png)
-3) General ruta entre origen y destino con datos de trayecto.
+3) Generar ruta entre origen y destino con datos de trayecto.
 
 ![](https://i.ibb.co/C83FTYH/page5.png)
 
@@ -37,12 +37,12 @@ Puedes clonar o hacer un fork a este repositorio para correr el proyecto en tu l
 ![](https://i.ibb.co/64W60dG/page6.png)
 
 
-##Autores
+## Autores
 - [Camilo Santana](https://github.com/drew-santanahttp:// "Camilo Santana")
 - [Diego Cruz](https://github.com/AbejaCruz "Diego Cruz")
 - [Jeffer Barragán](https://github.com/leshz "Jeffer Barragán")
 
-##Agradecimientos
+## Agradecimientos
 El resultado de este proyecto es en gran parte gracias a la mentoria obtenida por todo el equido de la Escula de JavaScript, un proyecto de innovación educativa de [Platzi](https://github.com/platzi "Platzi"), la plataforma online de aprendizaje más grande de latinoamerica.
 
 
