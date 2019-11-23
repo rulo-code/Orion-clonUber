@@ -1,17 +1,17 @@
-#City Driver
+# City Driver
 ![](https://i.ibb.co/yhSvpLD/logo.png)
 
 
 En este repositorio encontraras el codigo fuente de City Driver, un proyecto construido enteramente con JavaScript que imita el funcionamiento basico de un sistema de transporte privado.
 
-##Comenzando
+## Comenzando
 Puedes clonar o hacer un fork a este repositorio para correr el proyecto en tu local, sólo necesitarás lo siguiente:
 
 ### Prerequisitos
 1. git 
 2. Cualquier versión de Node superior a 8.X
 
-###Instalación
+### Instalación
 1. Abrir la carpeta de ./usuarios-api y ejecutar en la terminal:
  $ npm run start
  esto para montar nuestro servidor y poder hacer autenticación de usuarios.
@@ -22,7 +22,7 @@ Puedes clonar o hacer un fork a este repositorio para correr el proyecto en tu l
  esto para correr nuestro proyecto de React.js atravez de webpack.
 
 
-##Funcionamiento
+## Funcionamiento
 1) Pagina de incio y registro
 
 ![](https://i.ibb.co/CVvQ74F/page1.png)
