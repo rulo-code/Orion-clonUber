@@ -25,14 +25,15 @@ const TripLayout = (props) => {
 
   const [destination, setDestination] = useState(null);
   const [directions, setDirections] = useState({});
-  const [userLocation, setUserLocation] = useState({});
   const [tripInfo, setTripInfo] = useState({
     duration: '',
     distance: '',
   });
+  const [locationUser, setLocationUser] = useState(false);
 
   const getCoordinates = (position) => {
     console.log(position.coords.latitude);
+
     setOrigin({
       lat: position.coords.latitude,
       lng: position.coords.longitude,
@@ -41,6 +42,7 @@ const TripLayout = (props) => {
 
   };
   const getLocation = () => {
+    setLocationUser(!locationUser);
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(getCoordinates);
@@ -52,6 +54,7 @@ const TripLayout = (props) => {
   const handleChange = (originValue) => {
     if (originValue.length === 0) {
       setOrigin({});
+      setLocationUser(!locationUser);
     }
     setOriginValue(originValue);
   };
@@ -138,7 +141,8 @@ const TripLayout = (props) => {
             value={originValue}
             onChange={handleChange}
             onSelect={handleSelectOrigin}
-            getLocation={getLocation}
+            onClick={getLocation}
+            locationUser={locationUser}
           />
           <DropOff
             originValue={originValue}
@@ -161,7 +165,6 @@ const TripLayout = (props) => {
             duration={tripInfo.duration}
             onClick={handlleDirectionsService}
 
-
           />
           <DriverFound path='/driverfound' />
         </Router>
@@ -174,7 +177,6 @@ const TripLayout = (props) => {
           originValue={originValue}
           destinationValue={destinationValue}
           directions={directions}
-          userLocation={userLocation}
         />
       </div>
     </div>

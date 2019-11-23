@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState } from 'react';
 import { Link } from '@reach/router';
 import PlacesAutocomplete, {
@@ -7,7 +9,7 @@ import PlacesAutocomplete, {
 
 import '../assets/styles/components/Pickup.scss';
 
-const Pickup = ({ value, onChange, onSelect, getLocation }) => {
+const Pickup = ({ value, onChange, onSelect, locationUser, onClick }) => {
   return (
     <div className='pickup'>
       <h2>¿Dónde te recogemos?</h2>
@@ -45,8 +47,14 @@ const Pickup = ({ value, onChange, onSelect, getLocation }) => {
         )}
       </PlacesAutocomplete>
       <p>
-        Obtner mis ubicación
-        <i role='button' className='fas fa-map-marker-alt' onClick={getLocation} />
+        Obtener mi ubicación
+        <i
+          role='button'
+          onClick={onClick}
+          className={locationUser ?
+            'userLocationActive fas fa-map-marker-alt' :
+            'userLocation fas fa-map-marker-alt'}
+        />
       </p>
       {/* <button type='button' onClick={getLocation}>Obtener mis coordenadas</button> */}
       <Link to='/dropoff' className='btn' type='button'>Siguiente</Link>
