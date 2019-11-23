@@ -1,4 +1,4 @@
-const service = 'http://localhost:3000/api/users/?correo=';
+const service = 'https://pure-peak-47666.herokuapp.com/api/users/?correo=';
 
 const confingService = {
   // method: 'GET',
