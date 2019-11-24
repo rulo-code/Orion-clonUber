@@ -1,5 +1,6 @@
-const entryPointLogin = 'https://pure-peak-47666.herokuapp.com/api/';
-const service = `${entryPointLogin}users/?correo=`;
+import entry from "./entrypoints";
+
+const service = `${entry}users/?correo=`;
 
 const confingService = {
   // method: 'GET',
