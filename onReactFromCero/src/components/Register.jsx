@@ -36,8 +36,8 @@ const Register = (props) => {
     };
     RegisterService(data)
       .then((response) => {
-        if (response.status === 'ok') {
-          console.log('Usuario guardado');
+        if (response.message === 'user created') {
+          alert('usuario creado');
         }
       })
       .catch((err) => console.log(err));
