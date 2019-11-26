@@ -18,16 +18,15 @@ const Hero = ({ children }) => {
       <img className='hero__carro' src={carrito} alt='barra' />
 
       <div className='hero__arboles'>
-        <img className='arbol1' src={arbol1} alt='barra' />
-        <img className='arbol2' src={arbol1} alt='barra' />
-      </div>
-
-      <div className='hero__slogan'>
-        <h2>Viaja Rapido y Seguro</h2>
+        <img className='arbol arbol1' src={arbol1} alt='barra' />
+        <img className='arbol arbol2' src={arbol1} alt='barra' />
       </div>
 
       <div className='hero__form'>
         { children }
+      </div>
+      <div className='hero__slogan'>
+        <h2>Viaja Rapido y Seguro</h2>
       </div>
 
     </div>

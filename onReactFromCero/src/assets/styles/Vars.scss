@@ -9,7 +9,9 @@ $light-color: #fff;
 .active {
   box-shadow: 5px 5px 5px 0px #33648875;
 }
-
+@mixin border {
+  border: red solid 2px;
+}
 // MIXINS AND FUNCTIONS
 @function calculateRem($size) {
 	$remSize: $size / 16px;

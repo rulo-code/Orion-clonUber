@@ -15,7 +15,7 @@ const Map = compose(
   lifecycle({
   }),
 )((props) => {
-  const center = {
+  const defaultCenter = {
     lat: 4.6550365,
     lng: -74.1381167,
   };
@@ -24,10 +24,10 @@ const Map = compose(
     <div>
       <GoogleMap
         defaultZoom={12}
-        defaultCenter={center}
+        defaultCenter={props.centerMap}
         defaultOptions={{ styles: MapStyle }}
       >
-        {props.origin && !props.destinations && (
+        {props.origin && !props.destination && (
           <Marker position={{ lat: props.origin.lat, lng: props.origin.lng }} />
         )}
         {props.directions && (

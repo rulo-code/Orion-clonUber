@@ -15,14 +15,11 @@ import '../assets/styles/pages/TripLayout.scss';
 const TripLayout = (props) => {
 
   const [originValue, setOriginValue] = useState('');
-
   const [destinationValue, setDestinationValue] = useState('');
-
   const [origin, setOrigin] = useState({
     lat: '',
     lng: '',
   });
-
   const [destination, setDestination] = useState(null);
   const [directions, setDirections] = useState({});
   const [tripInfo, setTripInfo] = useState({
@@ -30,7 +27,10 @@ const TripLayout = (props) => {
     distance: '',
   });
   const [locationUser, setLocationUser] = useState(false);
-
+  const [centerMap, setCenterMap] = useState({
+    lat: 4.6550365,
+    lng: -74.1381167,
+  });
   const getCoordinates = (position) => {
     console.log(position.coords.latitude);
 
@@ -66,6 +66,7 @@ const TripLayout = (props) => {
   };
   const handleOrigin = (state) => {
     setOrigin(state);
+    setCenterMap(state);
   };
   const handleDestination = (state, type) => {
     setDestination(state);
@@ -177,6 +178,7 @@ const TripLayout = (props) => {
           originValue={originValue}
           destinationValue={destinationValue}
           directions={directions}
+          centerMap={centerMap}
         />
       </div>
     </div>
