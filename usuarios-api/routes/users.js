@@ -5,8 +5,8 @@ const {
   userIdSchema,
   createMovieSchema,
   updateMovieSchema
-}= require('../utils/schemas/users');
-const validationHandler = require ('../utils/middleware/validationHandler');
+} = require('../utils/schemas/users');
+const validationHandler = require('../utils/middleware/validationHandler');
 
 function usersApi(app) {
   const router = express.Router();
@@ -28,7 +28,7 @@ function usersApi(app) {
     }
   });
 
-  router.get('/:userId',validationHandler({userId:userIdSchema},'params'), async function(req, res, next) {
+  router.get('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async function(req, res, next) {
     const { userId } = req.params;
 
     try {
@@ -43,21 +43,22 @@ function usersApi(app) {
     }
   });
 
-  router.post('/', validationHandler( createMovieSchema), async function(req, res, next) {
+  router.post('/', validationHandler(createMovieSchema), async function(req, res, next) {
     const { body: user } = req;
     try {
-      const createdUserId = await usersService.createUser({ user});
+      const createdUserId = await usersService.createUser({ user });
 
       res.status(201).json({
-        data: createdUserId,
-        message: 'user created'
+        "data": createdUserId,
+        "message": 'user created',
+        "status": "ok"
       });
     } catch (err) {
       next(err);
     }
   });
 
-  router.put('/:userId', validationHandler({userId:userIdSchema},'params'), validationHandler( updateMovieSchema),  async function(req, res, next) {
+  router.put('/:userId', validationHandler({ userId: userIdSchema }, 'params'), validationHandler(updateMovieSchema), async function(req, res, next) {
     const { userId } = req.params;
     const { body: movie } = req;
 
@@ -76,7 +77,7 @@ function usersApi(app) {
     }
   });
 
-  router.delete('/:userId', validationHandler({userId:userIdSchema},'params'), async function(req, res, next) {
+  router.delete('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async function(req, res, next) {
     const { userId } = req.params;
 
     try {
