@@ -2,6 +2,7 @@
 @import "../breakpoints";
 
 .hero{
+  
   grid-area: main;
   display: grid ;
   grid-template: 1fr/ 70% 30%;
@@ -9,48 +10,34 @@
   height: 100%;
   padding: 1em;
   position: relative;
-  &__barra {
-    width: 100%;
-    height: 100%;
-    top: 40%;
-    @include positionZ(absolute, 2)
-  }
+ 
   &__ciudad {
-    width: 35%;
-    top: -10%;
-    left: 35%;
+    width: 100%;
+    top: -50%;
     @include positionZ(absolute, 1)
   }
   &__carro {
     width: 22%;
-    top: 45%;
     left: 1%;
-    @include positionZ(absolute, 3);
+    @include positionZ(relative, 3);
   }
-  &__arboles {
-    width: 22%;
-    top: 28%;
-    left: 1%;
-    @include positionZ(absolute, 2);
-    .arbol2 {
-      left: 8%;
-      transform: rotate(30deg);
-      @include positionZ(absolute, 2);
-    }
-  }
+ 
   &__slogan {
     @include flex();
-    align-items: center;
-    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 1em;
+    justify-content: center;
     color: $light-color;
-    padding-bottom: 2em;
-    top: 20%;
-    right: 10%;
+    
     @include positionZ(relative, 3);
     @include font-size(35px);
+    overflow: hidden;
+    h2 {
+      padding-left: 1em;
+      font-size: 1em;
+    }
   }
   &__form {
-    overflow: hidden;
     @include positionZ(relative, 4);
   }
 };

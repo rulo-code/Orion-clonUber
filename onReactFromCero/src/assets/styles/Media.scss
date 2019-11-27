@@ -1,46 +1,206 @@
 @import "./breakpoints";
 @import "./Vars.scss";
 
-@include media( mobile-only) {
-  .home {
-    overflow: visible;
+@media only screen and (max-width: 768px) and (min-width:425px) { 
+  .header {
+    line-height: 2.34375rem;
+    position: relative;
+    z-index: 10;
+    top: 15%;
+    font-size: 1.3em;
   }
   .hero {
-    display: grid;
-    grid-template: auto auto/ 1fr;
-
-    justify-content: space-between;
+    grid-template: 1fr/ 1fr;
     &__slogan {
-      @include positionZ(relative, 3);
-      top: 0;
-      right: 0;
-      height: auto;
-      justify-content: center;
-      font-size: 1em;
+      padding-bottom: 3em;
     }
-    &__barra {
-      top: 10%;
-    }
-    &__carro {
-      top: 20%;
-    }
-    &__arboles {
-      top: 13%;
-      .arbol {
-        width: 2em;
-      }
-      
+    &__slogan {
+      display: none;
     }
     &__form {
-      top: 32%;
-      overflow: visible ;
+      width: 80%;
+      margin: 0 auto;
+    }
+    &__ciudad {
+      top: -20%;
+    }
+  }
+  .trip {
+    grid-template: 10vh 60vh auto / 3fr;
+    overflow: overlay;
+    grid-template-areas: "header"
+                          "map"
+                          "trip"
+                          ;
+   }
+ } 
+ 
+@media only screen and (max-width: 425px) and (min-width: 0px) {
+  .header {
+    line-height: 2.34375rem;
+    position: relative;
+    z-index: 10;
+    top: 15%;
+    font-size: 1.3em;
+  }
+  .hero {
+    grid-template: 1fr/ 1fr;
+    &__ciudad {
+      top: -20%;
+    }
+    &__slogan {
+      display: none;
+    }
+    &__form {
+      width: 100%;
     }
     
   }
-  .login {
-    overflow: visible;
-    &__form {
-      height: auto;
+  .launcher {
+    &__buttons {
+      transform: translate(0px, 50%) scale(0.8)
     }
   }
-}
+} 
+
+// @include media(desktop-s-only){
+//   .hero {
+//     display: grid;
+//     grid-template: 1fr/ 60% 40%;
+//     grid-template-areas: "slogan form";
+//     &__form {
+//       grid-area: form;
+//       overflow: visible;
+//     }
+//     &__slogan {
+//       grid-area: slogan;
+//       align-items: flex-end;
+//     }
+//     &__arboles {
+//       z-index: 1;
+//     }
+//     &__ciudad {
+//       top: -55%;
+//     }
+//   }
+// }
+// @media only screen and (max-width: 905px) { 
+//   .hero {
+//     &__slogan {
+//       font-size: 1.5em;
+//       padding-bottom: 4em ;
+//     }
+//     &__carro {
+//       top: 40%;
+//     }
+//     &__ciudad {
+//       top: -60%;
+//     }
+//   }
+//  } 
+// @include media( mobile-only) {
+//   .home {
+//     overflow-x: hidden;
+//   }
+//   .header {
+//     top: 0%;
+    
+//     &__logo {
+//       transform: scale(.7);
+//     }
+//   }
+//   .hero {
+   
+//     &__slogan {
+//       padding-bottom: 3em;
+//     }
+   
+//     &__carro {
+//       display: none;
+//     }
+    
+   
+//     &__ciudad {
+//       top:-20%;
+
+//     }
+    
+//   }
+//   .login {
+//     overflow: visible;
+//     &__form {
+//       height: auto;
+//     }
+  
+//   }
+//   .launcher__buttons {
+//     transform: scale(0.6)translate(10%, 160%);
+//   }
+// }
+// @include media( mobile-l-only) {
+//   .launcher {
+//     transform: scale(.9);
+//   }
+//   .header {
+//     top: 0%;
+    
+//     &__logo {
+//       transform: scale(.7);
+//     }
+//   }
+//   .hero {
+//     top: 10%;
+//     &__carro {
+//       display: none;
+//     }
+//     &__barra {
+//       width: auto;
+//       top: -11%;
+//     }
+//     &__form {
+//       top: 0%;
+//     }
+//     &__ciudad {
+//       width: 12em;
+    
+//     position: absolute;
+//     z-index: 1;
+//     }
+//     &__arboles {
+//       display: none;
+//     }
+//   }
+// }
+// @include media( mobile-m-only) {
+//   .hero {
+//     padding: 0;
+//   }
+//   .launcher {
+//     transform: scale(.7);
+//     .launcher__buttons {
+//       .btn {
+//         width: 100%;
+//       }
+//     }
+//   }
+//   .hero {
+//     &__ciudad {
+//       width: 13em;
+      
+//       position: absolute;
+//       z-index: 1;
+//     }
+//     &__barra {
+//       width: auto;
+//       top: -5%;
+//     }
+//   }
+// }
+// @include media (mobile-s-only) {
+//   .hero {
+//     padding: 0;
+//     &__ciudad {
+      
+//     }
+//   }
+// }

@@ -4,9 +4,10 @@
   &__buttons {
     @include flexColumn();
     height: 30%;
+    transform: translate(0px, 91%)scale(0.8);
     .btn {
       @include button();
-      width: 60%;
+      width: 100%;
       text-align: center;
       font-size: 1.8em;
       color : $light-color;
